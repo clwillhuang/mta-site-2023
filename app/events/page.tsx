@@ -9,11 +9,11 @@ async function Events() {
     const title = 'Events';
     const subtitle = 'Browse upcoming and past events organized by MTA.'
 
-    const events: Array<IClubEvent> = await getAllEvents();
+    const events: IClubEvent[] | null = await getAllEvents();
 
-    const now = new Date()
-    const futureEvents = events.filter((event: IClubEvent) => new Date(event.start_time) >= now);
-    const pastEvents = events.filter((event: IClubEvent) => new Date(event.start_time) < now);
+    const now = new Date();
+    const futureEvents = events ? events.filter((event: IClubEvent | null) => new Date(event.start_time) >= now) : []
+    const pastEvents = events ? events.filter((event: IClubEvent | null) => new Date(event.start_time) < now) : []
 
     return (
         <Layout header={<Header title={title} subtitle={subtitle}/>}>

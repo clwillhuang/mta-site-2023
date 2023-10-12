@@ -29,16 +29,10 @@ export default () => {
                     <p>We'd love to get in touch!</p>
 
                     <form onSubmit={handleSubmit} className={styles.form} encType="text/plain">
-                        <div className={styles.formRow}>
-                            <div className={styles.formGroup}>
-                                <label htmlFor="senderName">Name</label>
-                                <input type="text" id="senderName" name="senderName" placeholder='Jane Doe' required />
-                            </div>
-                            <div className={styles.formGroup}>
-                                <label htmlFor="email">Contact Email</label>
-                                <input type="email" id="email" name="email" required placeholder='email@domain.com' />
-                            </div>
-                        </div>
+                        <label htmlFor="senderName">Name</label>
+                        <input type="text" id="senderName" name="senderName" placeholder='Jane Doe' required />
+                        <label htmlFor="email">Contact Email</label>
+                        <input type="email" id="email" name="email" required placeholder='email@domain.com' />
                         <label htmlFor="subjectLine">Subject</label>
                         <input type="text" id="subjectLine" name="subjectLine" placeholder='Write a descriptive subject line' required />
                         <label htmlFor="message">Message</label>

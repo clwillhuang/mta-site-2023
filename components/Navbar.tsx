@@ -21,6 +21,11 @@ export default function (props: NavbarProps) {
             sublinks: [],
         },
         {
+            title: 'Resources',
+            link: '/resources',
+            sublinks: [],
+        },
+        {
             title: 'Team',
             link: '/team',
             sublinks: [],
@@ -36,7 +41,7 @@ export default function (props: NavbarProps) {
         <header className={styles.header}>
             <div className={styles.inner}>
                 <nav>
-                    <a href="#" className={styles.logo}>
+                    <a href="/" className={styles.logo}>
                         <img src='/large-mta-logo.png'></img>
                     </a>
                     <input type="checkbox" id="nav" className={styles.toggle} /><label htmlFor="nav"></label>

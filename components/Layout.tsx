@@ -2,6 +2,7 @@ import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import { Session, getServerSession } from 'next-auth';
 import styles from './Layout.module.css'
 import Navbar from './Navbar';
+import Footer from './Footer';
 
 type LayoutProps = {
     children: JSX.Element[] | JSX.Element
@@ -20,6 +21,7 @@ export default async function Layout({children, header}: LayoutProps) {
             <div className={styles.container}>
                 {children}
             </div>
+            <Footer/>
         </div>
     )
 }

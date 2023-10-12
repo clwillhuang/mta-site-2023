@@ -3,36 +3,38 @@
 import { useState } from 'react';
 import styles from './Tabs.module.css'
 
-type TabsProps = {
-    children: JSX.Element[] | JSX.Element;
+export type TabProp = {
+    children: JSX.Element[];
+    title: string; 
+    key: string;
 }
 
-const Tabs = ({ children }: TabsProps) => {
-    const tabs: JSX.Element[] = Array.isArray(children) ? children : [children]
-    const [activeTab, setActiveTab] = useState(tabs[0].props.id);
+export type TabsProps = {
+    tabs: TabProp[]
+}
 
+const Tabs = ({ tabs }: TabsProps) => {
+    const [activeTab, setActiveTab] = useState(tabs[0].key);
     const selectTab = (label: string) => {
         setActiveTab(label)
     }
 
+    const tabData = tabs.find(x => x.key === activeTab);
+
     return (
         <div>
             <ul className={styles.tabList}>
-                {tabs.map((child: JSX.Element) => {
-                    const { id } = child.props;
+                {tabs.map((child: TabProp) => {
                     return (
-                        <li key={id} className={id === activeTab ? styles.activeTabLabel : styles.inactiveTabLabel} onClick={() => selectTab(id)}>
-                            <a role='button'>{id}</a>
+                        <li key={child.key} className={child.key === activeTab ? styles.activeTabLabel : styles.inactiveTabLabel} onClick={() => selectTab(child.key)}>
+                            <a role='button'>{child.title}</a>
                         </li>
                     )
                 })}
             </ul>
-            <div>
+            <div className={styles.tabContent}>
                 {
-                    tabs.map((child: JSX.Element) => {
-                        if (child.props.id === activeTab) return child
-                        else return null;
-                    })
+                    tabData && tabData.children
                 }
             </div>
         </div>

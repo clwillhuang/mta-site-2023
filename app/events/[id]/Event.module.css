@@ -21,12 +21,12 @@
 }
 
 .subtitle {
-    text-align: center;
+    text-align: left;
 }
 
 .imageContent {
     display: flex;
-    justify-content: center;
+    justify-content: left;
 }
 
 .image {
@@ -71,7 +71,7 @@
     background: none;
     border: none;
     width: 100%;
-    text-align: center;
+    text-align: left;
     padding: 10px;
     cursor: pointer;
     font-size: 1.0em;

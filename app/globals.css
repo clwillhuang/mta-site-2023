@@ -17,7 +17,7 @@
 } */
 
 body {
-  color: white;
+  color: var(--accent);
   background: var(--primary);
 }
 
@@ -29,11 +29,64 @@ p {
   font-size: 14px;
 }
 
-input, textarea {
+input,
+textarea {
   font-size: 14px;
   padding: 5px;
 }
 
 label {
   font-size: 14px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  border: solid var(--accent) 1px;
+  padding: 15px;
+  justify-content: center;
+}
+
+form label {
+  color: var(--accent);
+  font-size: 14px;
+  margin: 10px 0 5px 0;
+  font-weight: bold;
+}
+
+form input,
+form textarea {
+  border: solid var(--accent) 1px;
+  border-radius: 5px;
+  background-color: var(--primary);
+  color: var(--accent);
+  font-size: 14px;
+  padding: 10px;
+  width: min(50%, 500px);
+}
+
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border: solid rgb(89, 89, 89) 1px;
+}
+
+form button {
+  background-color: transparent;
+  border: var(--accent) solid 2px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 2.0em;
+  color: white;
+  width: min-content;
+  margin: 5px 0 0 0;
+  padding: 0 20px;
+}
+
+form button:hover {
+  cursor: pointer;
+  color: var(--primary);
+  background-color: var(--accent);
 }

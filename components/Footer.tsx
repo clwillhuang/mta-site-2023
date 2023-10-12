@@ -15,8 +15,13 @@ function Footer() {
             sublinks: [],
         },
         {
+            title: 'Resources',
+            link: '/resources',
+            sublinks: [],
+        },
+        {
             title: 'Team',
-            link: '/#team',
+            link: '/team',
             sublinks: [],
         },
         {
@@ -44,8 +49,8 @@ function Footer() {
                 })}
                 <li><a href="#">Login</a></li>
             </ul>
-            <p className={styles.credits}>© 2023 Management Technology Association. All rights reserved.</p>
         </div>
+            <p className={styles.credits}>© 2023 Management Technology Association. All rights reserved.</p>
     </footer>
   )
 }

@@ -7,6 +7,7 @@ export interface IClubEvent extends mongoose.Document {
     title: string,
     location: string,
     image_link: string | null,
+    body: string,
 }
 
 export const clubEventSchema = new mongoose.Schema<IClubEvent>({
@@ -31,6 +32,9 @@ export const clubEventSchema = new mongoose.Schema<IClubEvent>({
     },
     image_link: {
         type: String
+    },
+    body: {
+        type: String,
     }
 });
 

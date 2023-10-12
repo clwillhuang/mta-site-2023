@@ -2,7 +2,8 @@
 
 import { IClubEvent } from "@/models/Event";
 import { useState } from "react";
-import styles from './EventForm.module.css'
+import styles from '@/app/globals.css'
+import '@/app/globals.css'
 
 export default function ({ event }: { event: IClubEvent }) {
 
@@ -22,62 +23,63 @@ export default function ({ event }: { event: IClubEvent }) {
         const requestOptions = {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(requestData),
+            body: JSON.stringify(eventData),
         };
-        fetch(`http://localhost:7000/api/events/${_id}`, requestOptions)
+        fetch(`http://localhost:3000/api/admin/events/${_id}`, requestOptions)
             .then((response) => response.json())
-            .then((data) => { window.location.replace('/admin') });
+            // .then((data) => { window.location.replace('/admin') });
     };
 
     return (
         <form className={styles.form} onSubmit={handleSubmit}>
-            <label>
+            <label htmlFor='title'>
                 Title
                 <br />
+            </label>
                 <input
                     type="text"
                     name="title"
                     value={event.title}
                     onChange={handleChange}
                 />
-            </label>
             <br />
-            <label>
+            <label htmlFor='location'>
                 Location
                 <br />
+            </label>
                 <input
                     type="text"
                     name="location"
                     value={eventData.location}
                     onChange={handleChange}
                 />
-            </label>
             <br />
             <label>
                 Start Time
                 <br />
+            </label>
                 <input
                     type="datetime-local"
                     name="start_time"
                     value={eventData.start_time}
                     onChange={handleChange}
                 />
-            </label>
             <br />
-            <label>
+            <label htmlFor='end_time'>
                 End Time
                 <br />
+            </label>
                 <input
                     type="datetime-local"
                     name="end_time"
                     value={eventData.end_time}
                     onChange={handleChange}
                 />
-            </label>
             <br />
-            <label>
+            <label htmlFor='description'>
                 Description
                 <br />
+            </label>
                 <textarea
                     rows={5}
                     type="text"
@@ -85,18 +87,17 @@ export default function ({ event }: { event: IClubEvent }) {
                     value={eventData.description}
                     onChange={handleChange}
                 />
-            </label>
             <br />
-            <label>
+            <label htmlFor='image_link'>
                 Image Link
                 <br />
+            </label>
                 <input
                     type="text"
                     name="image_link"
                     value={eventData.image_link}
                     onChange={handleChange}
                 />
-            </label>
             <button type="submit">Submit</button>
         </form>
     )

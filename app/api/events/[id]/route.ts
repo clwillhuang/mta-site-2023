@@ -65,7 +65,9 @@ export async function PATCH(
         return NextResponse.json({ message: content }, { status: 500 })
     }
 
+    
     const body = await request.json();
+    console.log('body:', body)
 
     if (body.start_time != null) {
         event.start_time = body.start_time;
@@ -85,8 +87,12 @@ export async function PATCH(
     if (body.image_link != null) {
         event.image_link = body.image_link;
     }
+    if (body.body != null) {
+        event.body = body.body;
+    }
 
     try {
+        console.log(event)
         const updatedEvent = await event.save();
         return NextResponse.json(updatedEvent, { status: 200 });
     } catch (err) {

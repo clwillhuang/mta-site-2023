@@ -38,7 +38,7 @@ export default ({signup, _id}: {signup: ISignup | null, _id: string}) => {
     if (isSignedUp) {
         const signupDate = signup && (new Date(signup.date)).toLocaleString('en-US', options);
         return(
-            <p className={styles.signup}><FontAwesomeIcon icon={faUserCheck}/>Signed up {signupDate}</p>
+            <p className={styles.signup}><FontAwesomeIcon icon={faUserCheck}/> You signed up on {signupDate}</p>
         )
     } else {
         return(

@@ -5,6 +5,7 @@ import Layout from '@/components/Layout';
 import { IClubEventWithSignup, getEventWithSignup } from '@/app/api/events/[id]/route';
 import SignupButton from '@/components/Events/SignupButton/SignupButton';
 import { notFound } from 'next/navigation';
+import MarkdownBody from '@/components/MarkdownBody/MarkdownBody';
 
 export default async function Page({ params }: { params: { id: string } }) {
     
@@ -15,7 +16,7 @@ export default async function Page({ params }: { params: { id: string } }) {
     const { signup, event } = data;
     if (!event) notFound();
 
-    const { start_time, end_time, description, title, location, image_link } = event;
+    const { start_time, end_time, description, title, location, image_link, body } = event;
 
     const options = { month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true }
     
@@ -41,8 +42,9 @@ export default async function Page({ params }: { params: { id: string } }) {
             <div className={styles.textContent}>
                 <p className={styles.time}><FontAwesomeIcon icon={faCalendar} /> {timeString()}</p>
                 <p className={styles.location}><FontAwesomeIcon icon={faLocationDot} /> {location}</p>
-                <p className={styles.description}>{description}</p>
                 <SignupButton _id={id} signup={signup}/>
+                <p className={styles.description}>{description}</p>
+                <MarkdownBody rawText={body}/>
             </div>
         </div>
         </Layout>

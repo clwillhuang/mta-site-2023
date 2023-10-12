@@ -33,3 +33,7 @@
 .tabList li:last-child {
     margin-right: 0;
 }
+
+.tabContent {
+    margin: 50px auto;
+}

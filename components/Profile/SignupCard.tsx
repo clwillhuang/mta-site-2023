@@ -31,7 +31,7 @@ const SignupCard = ({data}: { data: ISignupWithEventData}) => {
         <div>
             <p>{title}</p>
             <p>{timeString}</p>
-            <p>Signed up {(new Date(date)).toLocaleString('en-US', options)}</p>
+            <p>You signed up {(new Date(date)).toLocaleString('en-US', options)}</p>
         </div>
     )
 }
