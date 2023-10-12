@@ -1,0 +1,80 @@
+.event {
+    border-radius: 15px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.event svg {
+    width: 1.0em;
+    height: 1.0em;
+}
+
+.image  {
+    height: 300px;
+    overflow: hidden;
+}
+
+@media (max-width: 500px) {
+    .imageContent {
+        height: 20vh;
+    }
+}
+
+.subtitle {
+    text-align: center;
+}
+
+.imageContent {
+    display: flex;
+    justify-content: center;
+}
+
+.image {
+    border-radius: 15px;
+    object-fit: cover;
+    margin: 0;
+    z-index: 0;
+}
+
+.textContent {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 200px;
+}
+
+.title {
+    margin: 0;
+}
+
+.time, .location {
+    margin: 0;
+    color: #bebebe;
+}
+
+
+
+.location {
+    margin-bottom: 15px;
+}
+
+.description {
+    margin: 0;
+}
+
+.lastChild {
+    display: flex;
+    flex-grow: 1;
+}
+
+.readMore {
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.0em;
+    color: var(--accent);
+    align-self: flex-end;
+}

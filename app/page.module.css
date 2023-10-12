@@ -1,0 +1,177 @@
+.aboutTitle {
+  font-size: 2.0em;
+}
+
+.screenContainer,
+.titleContainer {
+  padding-top: 100px;
+  height: 100vh;
+  max-width: 100%;
+  position: relative;
+}
+
+@media (max-width: 500px) {
+
+  .screenContainer,
+  .titleContainer {
+    padding: 0;
+  }
+
+  .about {
+    text-align: center;
+    background-color: var(--primary);
+    z-index: 5;
+  }
+}
+
+@media (min-width: 500px) {
+
+  .screenContainer,
+  .titleContainer {
+    padding: 0 80px;
+  }
+}
+
+.titleContainer {
+  margin-top: 200px;
+  text-align: center;
+}
+
+.content img {
+  width: 150px;
+  height: 150px;
+  margin-top: 30px;
+}
+
+.timelineContainer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.timelineLine {
+  position: absolute;
+  top: 0;
+  left: calc(50% - 2px);
+  width: 2px;
+  height: 100%;
+  border: white inset 1px;
+  background-color: white;
+}
+
+.timelineLeft,
+.timelineRight {
+  flex-direction: row;
+  position: relative;
+}
+
+.timelineLeft h3,
+.timelineRight h3 {
+  position: relative;
+}
+
+@media (max-width: 500px) {
+
+  .timelineLeft .arrow,
+  .timelineRight .arrow {
+    display: none;
+  }
+
+  .timelineLeft,
+  .timelineRight {
+    text-align: center;
+    width: 100%;
+    z-index: 5;
+    border: var(--accent) solid 2px;
+    margin: 15px 0;
+    border-radius: 10px;
+    background-color: var(--primary);
+  }
+
+  .timelineLeft p,
+  .timelineRight p {
+    margin: 15px;
+  }
+
+  .timelineContainer {
+    padding: 25px;
+  }
+}
+
+@media (min-width: 500px) {
+
+  .timelineLeft .arrow,
+  .timelineRight .arrow {
+    position: absolute;
+    border-bottom: white solid 4px;
+  }
+
+  .timelineContainer {
+    padding: 80px;
+  }
+
+  .timelineLeft p {
+    margin-right: 20%;
+  }
+
+  .timelineLeft {
+    text-align: left;
+  }
+
+  .timelineRight {
+    margin-left: 50%;
+    text-align: right;
+  }
+
+  .timelineLeft,
+  .timelineRight {
+    width: 50%;
+    display: inline-flex;
+  }
+
+  .timelineRight p {
+    margin-left: 20%;
+  }
+}
+
+
+.timelineLeft .arrow {
+  right: -2px;
+  left: 50%;
+  top: -20px;
+  bottom: 50%;
+  border-bottom-right-radius: 50vh;
+  border-right: white solid 3px;
+}
+
+.timelineRight .arrow {
+  right: 50%;
+  left: -2px;
+  top: -20px;
+  bottom: 50%;
+  border-bottom-left-radius: 50vh;
+  border-left: white solid 3px;
+}
+
+
+
+
+
+.memberItem {
+  border-radius: 15px;
+  margin: 5px;
+  padding: 20px;
+  border: solid var(--accent) 1px;
+}
+
+.memberItem>h4 {
+  margin: 0;
+}
+
+.memberItem>p {
+  margin: 0;
+}
+
+
+
+

@@ -1,0 +1,65 @@
+.parent {
+    position: relative;
+    margin: 0;
+}
+
+.preview {
+    display: flex;
+    flex-direction: row;
+}
+
+.userImage {
+    width: 2em;
+    margin-top: auto;
+    height: 2em;
+    margin-right: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.parent > a {
+    margin: 0 auto;
+}
+
+.parent > a:hover {
+    text-decoration: underline;
+}
+
+.dropdown {
+    position: absolute;
+    right: 0;
+    border-radius: 15px;
+    background: var(--primary);
+    border: 2px solid var(--accent);
+    width: calc(min(100vw, 200px));
+}
+
+.dropdown ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown li {
+    margin: 5px 15px 5px 15px;
+    text-align: right;
+}
+
+.dropdown li > a {
+    text-decoration: none;
+}
+
+.dropdown li > a:hover {
+    text-decoration: underline;
+}
+
+.dropdown button {
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: right;
+    padding: 0;
+    cursor: pointer;
+    font-size: 1.0em;
+}
+

@@ -1,0 +1,33 @@
+.headerContainer {
+    padding-top: 100px;
+    height: 80vh;
+    max-width: 100%;
+    position: relative;
+    text-align: center;
+    display: grid;
+    place-items: center;
+}
+
+.headerContainer h1 {
+    font-size: 3em;
+}
+
+
+@media (max-width: 500px) {
+    .headerContainer {
+        padding: 0;
+    }
+}
+
+@media (min-width: 500px) {
+    .headerContainer {
+        padding: 0 80px;
+    }
+}
+
+.headerContent {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 20vw;
+    align-items: center;
+}

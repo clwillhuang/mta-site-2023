@@ -1,0 +1,35 @@
+.activeTabLabel, .inactiveTabLabel {
+    padding: 15px;
+    cursor: pointer;;
+}
+
+.activeTabLabel {
+    font-weight: bold;
+    text-decoration: underline;
+    border: solid var(--accent) 2px;
+    border-bottom: 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.inactiveTabLabel {
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.tabList {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.tabList li {
+    margin-right: 1rem;
+    font-size: 25px;
+}
+
+.tabList li:last-child {
+    margin-right: 0;
+}
