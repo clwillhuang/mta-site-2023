@@ -1,21 +1,19 @@
 import { ISignupWithEventData } from "@/app/api/me/route";
+import { notFound } from "next/navigation";
 import { useMemo } from "react";
 
 const SignupCard = ({data}: { data: ISignupWithEventData}) => {
 
-    if (!data.eventData) return null;
-
-    const {eventData: { title, start_time, end_time }, date } = data;
-
-    const options = useMemo(() => {
-        return { month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true }
-    }, [])
+    const options = { month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true }
 
     const timeString = useMemo(() => {
+        if (!data.eventData) {
+            return(``)
+        }
+        const { eventData: { start_time, end_time } } = data;
+
         const startDate = new Date(start_time)
         const endDate = new Date(end_time)
-        
-    
         const startString = startDate.toLocaleString('en-US', options).replace('at', '@');
         const endString = endDate.toLocaleString('en-US', options).replace('at', '@');
     
@@ -25,15 +23,20 @@ const SignupCard = ({data}: { data: ISignupWithEventData}) => {
         } else {
             return(`${startString} - ${endString}`)
         }
-    }, [start_time, end_time])
+    }, [data, options])
+    
+    if (data.eventData) {
+        return(
+            <div>
+                <p>{data.eventData.title}</p>
+                <p>{timeString}</p>
+                <p>You signed up {(new Date(data.eventData.date)).toLocaleString('en-US', options)}</p>
+            </div>
+        )
+    } else {
+        notFound()
+    }
 
-    return(
-        <div>
-            <p>{title}</p>
-            <p>{timeString}</p>
-            <p>You signed up {(new Date(date)).toLocaleString('en-US', options)}</p>
-        </div>
-    )
 }
 
 export default SignupCard;

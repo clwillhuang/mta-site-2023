@@ -25,7 +25,7 @@ export default async function Page() {
             title: 'Events',
             key: 'events',
             children: [
-                <div>
+                <div key='admin/events'>
                     <a href='/admin/events'>
                         <FontAwesomeIcon icon={faPlusCircle}/><span> Add new event</span> 
                     </a>
@@ -42,10 +42,10 @@ export default async function Page() {
             title: 'Resources',
             key: 'resources',
             children: [
-                <a href='/admin/resources'>
+                <a href='/admin/resources' key='admin/resources link'>
                     <FontAwesomeIcon icon={faPlusCircle} /> Create new resource
                 </a>,
-                <div>
+                <div key='admin/resources'>
                     {
                         resources && resources.map((res: IResource) => {
                             return (<AdminResourcesCard resource={res} />)
@@ -58,7 +58,7 @@ export default async function Page() {
             title: 'Users',
             key: 'users',
             children: [
-                <div />
+                <div key='admin/users' />
             ]
         },
     ]
