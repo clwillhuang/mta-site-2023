@@ -27,6 +27,7 @@
 .imageContent {
     display: flex;
     justify-content: left;
+    margin: 15px 0;
 }
 
 .image {

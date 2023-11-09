@@ -1,21 +1,41 @@
 import { ReactNode } from 'react';
 import styles from './Header.module.css'
+import Image from 'next/image'
+import { AsymTriangleTop } from '../Dividers/AsymTriangleTop';
 
-type HeaderProps = {
+export type HeaderImageProps = {
+    src: any,
+    alt: string
+}
+
+export type HeaderProps = {
     title: string,
     subtitle: string,
     children: JSX.Element[] | JSX.Element
-    contentClassName: string
+    contentClassName: string,
+    image?: HeaderImageProps;
+    divider?: JSX.Element
 }
 
-const Header = ({ title, subtitle, children, contentClassName }: HeaderProps) => {
+const Header = ({ title, subtitle, children, contentClassName, image, divider }: HeaderProps) => {
+
     return (
         <div className={styles.headerContainer}>
-            <div className={`${styles.headerContent} ${contentClassName}`}>
-                <h1>{title}</h1>
-                {subtitle && <p>{subtitle}</p>}
-                {children}
+            {
+            image &&
+                <div className={styles.imageContainer}>
+                    <Image src={image.src} fill={true} alt={image.alt} objectFit='cover' />
+                </div>
+            }
+            <div className={styles.headerBackground}/>
+            <div className={styles.headerContentBackground}>
+                <div className={`${styles.headerContent} ${contentClassName}`}>
+                    <h1>{title}</h1>
+                    {subtitle && <p>{subtitle}</p>}
+                    {children}
+                </div>
             </div>
+            {divider && divider}
         </div>
     )
 }

@@ -20,7 +20,7 @@ export default function ({ resource, create }: { resource: IResource | null, cre
         }
     );
 
-    const handleChange = (e) => {
+    const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setFormData((prevEvent: any) => ({
             ...prevEvent,
@@ -28,7 +28,7 @@ export default function ({ resource, create }: { resource: IResource | null, cre
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: React.MouseEvent<HTMLFormElement>) => {
         e.preventDefault();
         const { slug } = formData
         const requestOptions = {

@@ -1,0 +1,9 @@
+.backLink {
+    padding-top: 50px;
+    cursor: pointer;;
+}
+
+.backLink:hover {
+    text-decoration: underline;
+}
+

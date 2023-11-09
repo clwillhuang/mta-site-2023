@@ -2,74 +2,107 @@ import { Team } from "@/models/TeamMember";
 
 export const teamData: Array<Team> = [
     {
-        name: 'Team Name 1',
+        name: 'Co-Presidents',
         members: [
             {
-                name: 'First Last',
-                title: 'Position of Role Title 1',
+                name: 'Prit Balaji',
+                title: 'Co-President',
             },
             {
-                name: 'First Last',
-                title: 'Position of Role Title 2',
+                name: 'Danish Siddiqui',
+                title: 'Co-President',
             },
         ]
     },
     {
-        name: 'Team Name 1',
+        name: 'Marketing',
         members: [
             {
-                name: 'First Last',
-                title: 'Position of Role Title 1',
+                name: 'Averly Moe',
+                title: 'VP Marketing',
             },
             {
-                name: 'First Last',
-                title: 'Position of Role Title 2',
+                name: 'Ashni Theepan',
+                title: 'Director of Marketing',
             },
             {
-                name: 'First Last',
-                title: 'Position of Role Title 3',
+                name: 'Chloe Lai',
+                title: 'Director of Marketing',
             },
             {
-                name: 'First Last',
-                title: 'Position of Role Title 4',
-            },
-            {
-                name: 'First Last',
-                title: 'Position of Role Title 5',
-            }
-        ]
-    },
-    {
-        name: 'Team Name 2',
-        members: [
-            {
-                name: 'First Last',
-                title: 'Position of Role Title 1',
-            },
-            {
-                name: 'First Last',
-                title: 'Position of Role Title 2',
-            },
-            {
-                name: 'First Last',
-                title: 'Position of Role Title 3',
+                name: 'Caleb Lee',
+                title: 'Director of Marketing',
             },
         ]
     },
     {
-        name: 'Team Name 3',
+        name: 'Corporate Relations',
         members: [
             {
-                name: 'First Last',
-                title: 'Position of Role Title 1',
+                name: 'Keevan Martanto',
+                title: 'VP Corporate Relations'
             },
             {
-                name: 'First Last',
-                title: 'Position of Role Title 2',
+                name: 'Fabiha Maliyat',
+                title: 'Director of Corporate Relations'   
             },
             {
-                name: 'First Last',
-                title: 'Position of Role Title 3',
+                name: 'Ines Chan',
+                title: 'Director of Business Development'
+            },
+        ]
+    },
+    {
+        name: 'Operations',
+        members: [
+            {
+                name: 'Amna Alvi',
+                title: 'VP Operations',
+            },
+            {
+                name: 'Khushi Talati',
+                title: 'Director of Events'
+            },
+            {
+                name: 'Sarbotam Dhaliwal',
+                title: 'Director of Internal Affairs'
+            },
+            {
+                name: 'Theebana Thavarajah',
+                title: 'Director of Operations',
+            },
+            {
+                name: 'Nicholas Cheung',
+                title: 'Director of Operations',
+            },
+            {
+                name: 'Monica Vergara',
+                title: 'Director of Operations',
+            },
+            {
+                name: 'Siya Grover',
+                title: 'Director of Operations',
+            },
+            {
+                name: 'Prachi Kumar',
+                title: 'Director of Operations',
+            },
+        ]
+    },
+    {
+        name: 'Technology',
+        members: [
+            {
+                name: 'William Huang',
+                title: 'Director of Web Development',
+            },
+            {
+                name: 'Yuval Kamani',
+                title: 'Director of Technology',
+            },
+            {
+                name: 'Aarya Prakash',
+                title: 'Director of Technology',
             },
         ]
     }

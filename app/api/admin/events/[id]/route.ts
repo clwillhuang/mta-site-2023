@@ -23,6 +23,12 @@ export async function PATCH(
     if (body.start_time != null) {
         event.start_time = body.start_time;
     }
+    if (body.no_fixed_times != null) {
+        event.no_fixed_times = body.no_fixed_times;
+    }
+    if (body.can_signup != null) {
+        event.can_signup = body.can_signup;
+    }
     if (body.end_time != null) {
         event.end_time = body.end_time;
     }

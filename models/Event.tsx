@@ -1,8 +1,11 @@
 import mongoose from 'mongoose';
 
-export interface IClubEvent extends mongoose.Document {
+export interface IClubEventData {
+    id?: any,
     start_time: Date,
     end_time: Date,
+    no_fixed_times: boolean,
+    can_signup: boolean,
     description: string,
     title: string,
     location: string,
@@ -10,10 +13,22 @@ export interface IClubEvent extends mongoose.Document {
     body: string,
 }
 
+export interface IClubEvent extends mongoose.Document, IClubEventData {
+
+}
+
 export const clubEventSchema = new mongoose.Schema<IClubEvent>({
     id: {
         type: mongoose.Schema.Types.ObjectId,
         unique: true,
+    },
+    no_fixed_times: {
+        type: Boolean,
+        default: false,
+    },
+    can_signup: {
+        type: Boolean,
+        default: false,
     },
     start_time: {
         type: Date, required: true

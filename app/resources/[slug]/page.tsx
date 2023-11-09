@@ -1,12 +1,13 @@
 import styles from './Resource.module.css'
-import Layout from '@/components/Layout';
+import Layout from '@/components/Layout/Layout';
 import { notFound } from 'next/navigation';
 import MarkdownBody from '@/components/MarkdownBody/MarkdownBody';
 import { getResource } from '@/app/api/resources/[slug]/route';
 import { IResource } from '@/models/Resource';
+import PaddedLayout from '@/components/PaddedLayout/PaddedLayout';
 
 export default async function Page({ params }: { params: { slug: string } }) {
-    
+
     const resource: IResource | null = await getResource(params.slug)
     if (!resource) notFound();
 
@@ -19,12 +20,14 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
     return (
         <Layout>
-            <h2 className={styles.subtitle}>{title}</h2>
-            <p className={styles.credits}>{byline}</p>
-            <p className={styles.dates}>First published {publishDisplay}. Last edited {editDisplay}</p>
-            <div className={styles.textContent}>
-                <MarkdownBody rawText={markdown}/>
-            </div>
+            <PaddedLayout addNavbarPadding>
+                <h2 className={styles.subtitle}>{title}</h2>
+                <p className={styles.credits}>{byline}</p>
+                <p className={styles.dates}>First published {publishDisplay}. Last edited {editDisplay}</p>
+                <div className={styles.textContent}>
+                    <MarkdownBody rawText={markdown} />
+                </div>
+            </PaddedLayout>
         </Layout>
     )
 }

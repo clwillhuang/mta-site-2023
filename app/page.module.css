@@ -1,4 +1,5 @@
 .aboutTitle {
+  text-align: center;
   font-size: 2.0em;
 }
 
@@ -47,14 +48,16 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  background-color: var(--primary_darker);
 }
 
 .timelineLine {
   position: absolute;
-  top: 0;
+  top: 50px;
+  bottom: 0;
   left: calc(50% - 2px);
   width: 8px;
-  height: 100%;
+  height: calc(100% - 100px);
   border: white inset 1px;
   background-color: white;
 }
@@ -68,6 +71,7 @@
 .timelineLeft h3,
 .timelineRight h3 {
   position: relative;
+  font-size: 1.5em;
 }
 
 @media (max-width: 500px) {
@@ -94,7 +98,11 @@
   }
 
   .timelineContainer {
-    padding: 25px;
+    padding: 25px 25px 150px 25px;
+  }
+
+  .eventBar {
+    flex-direction: column;
   }
 }
 
@@ -107,7 +115,7 @@
   }
 
   .timelineContainer {
-    padding: 80px;
+    padding: 80px 80px 150px 80px;
   }
 
   .timelineLeft p {
@@ -132,6 +140,10 @@
   .timelineRight p {
     margin-left: 20%;
   }
+
+  .eventBar {
+    flex-direction: row;
+  }
 }
 
 
@@ -153,25 +165,18 @@
   border-left: white solid 3px;
 }
 
-
-
-
-
-.memberItem {
-  border-radius: 15px;
-  margin: 5px;
-  padding: 20px;
-  border: solid var(--accent) 1px;
+.events {
+  background-color: var(--primary_lighter);
+  padding: 50px;
+  margin: -5px;
 }
 
-.memberItem>h4 {
-  margin: 0;
+.eventTitle {
+  text-align: center;
 }
 
-.memberItem>p {
-  margin: 0;
+.eventBar {
+  display: flex;
+  justify-content: center;
 }
-
-
-
 

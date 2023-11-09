@@ -7,6 +7,7 @@ import { IClubEvent } from '@/models/Event';
 
 function EventCard({ data }: { data: IClubEvent }) {
     const { _id, start_time, end_time, description, title, location, image_link } = data;
+    const no_fixed_times = data?.no_fixed_times ?? false;
 
     const timeString = useMemo(() => {
         const startDate = new Date(start_time)
@@ -33,9 +34,12 @@ function EventCard({ data }: { data: IClubEvent }) {
             </div>
             <div className={styles.textContent}>
                 <h3 className={styles.title}>{title}</h3>
-                <p className={styles.time}>
-                    <FontAwesomeIcon icon={faCalendar}/> {timeString}
-                </p>
+                {
+                    !no_fixed_times && 
+                    <p className={styles.time}>
+                        <FontAwesomeIcon icon={faCalendar}/> {timeString}
+                    </p>
+                }
                 <p className={styles.location}>
                     <FontAwesomeIcon icon={faLocationDot}/> {location}
                 </p>

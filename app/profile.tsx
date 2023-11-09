@@ -1,8 +1,9 @@
 import { Session } from 'next-auth'
 import { getSession } from 'next-auth/react'
 import React from 'react'
-import Layout from '../components/Layout'
+import Layout from '../components/Layout/Layout'
 import styles from './Profile.module.css'
+import PaddedLayout from '@/components/PaddedLayout/PaddedLayout'
 
 /**
  * Return the dashboard page for profile page
@@ -14,6 +15,7 @@ const Profile = (props) => {
 
     return( 
         <Layout session={session}>
+          <PaddedLayout addNavbarPadding>
             <h2>My account</h2>
             <p className={styles.headline}>
             <img src={user?.image as string} className={styles.image}></img>
@@ -23,6 +25,7 @@ const Profile = (props) => {
             <p>{user?.email}</p>
             <strong>Role</strong>
             {/* <p>{user.role}</p> */}
+            </PaddedLayout>
         </Layout>
     )
 }

@@ -1,0 +1,17 @@
+.memberItem p {
+    color: rgb(199, 199, 199);
+  }
+
+  .memberItem {
+    text-align: center;
+  }
+
+.imgContainer {
+  margin: 0 auto 10px auto;
+  display: flex;
+  width: 150px;
+  position: relative;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+}

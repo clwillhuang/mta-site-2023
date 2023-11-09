@@ -17,3 +17,28 @@
 .description {
     margin: 0 auto;
 }
+
+.actions {
+    margin-top: 25px;
+}
+
+.actions > a, .actions > button {
+    height: 100%;
+    
+}
+
+.deleteButton, .editButton {
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.deleteButton {
+    background-color: rgb(244, 8, 0);
+}
+
+.editButton {
+    background-color: rgb(0, 79, 207);
+}

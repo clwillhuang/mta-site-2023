@@ -1,0 +1,128 @@
+
+.header {
+    background-color: var(--primary);
+    max-width: 100vw;
+    z-index: 10;
+    padding: 40px none 5px none;
+    margin: 0;
+    border-top: solid var(--accent) 2px;
+}
+
+.inner {
+    margin: 0;
+    padding: 20px 20px;
+    position: relative;
+}
+
+.logo {
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.logo img {
+    height: 60px;
+}
+
+.list {
+    float: right;
+    list-style-type: none;
+}
+
+.list > li {
+    font-size: 18px;
+    text-align: center;
+    line-height: 40px;
+    margin-left: 70px;
+}
+
+.sublist li {
+    width: 100%;
+    text-align: left;
+}
+
+.list li:hover {
+    cursor: pointer;
+    position: relative;
+}
+
+.list li:hover > ul {
+    display: block;
+}
+
+.list > li > a {
+    cursor: pointer;
+    display: block;
+    outline: none;
+    width: 100%;
+    text-decoration: none;
+}
+
+.list > li {
+    float: left;
+}
+
+.list li ul {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    z-index: 2000;
+}
+
+.list li ul li > a {
+    text-decoration: none;
+}
+
+.credits {
+    text-align: center;
+    color: gray;
+    margin: 0 unset;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .inner {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .list {
+        margin-left: auto;
+        margin-right: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .inner {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    .list {
+        padding: 0;
+        text-align: center;
+    }
+    .list li {
+        display: block;
+        float: none;
+        width: 100%;
+    }
+    .list > li {
+        margin-left: 0px;
+    }
+    .list li ul li {
+        display: block;
+        float: none;
+    }
+    .list li ul {
+        display: block;
+        position: relative;
+        width: 100%;
+        z-index: 100;
+        float: none;
+    }
+}

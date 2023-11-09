@@ -4,6 +4,10 @@
 
 :root {
   --primary: #142664;
+  --primary_light: #05299E;
+  --primary_lighter: #1E49E3; 
+  --secondary: #06AFD3;
+  --secondary2: #5A15AB;
   --accent: #ffffff;
   --primary_darker: #0a1436;
 }

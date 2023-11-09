@@ -1,6 +1,11 @@
 .grid {
     display: grid;
     gap: 50px;
+    margin-bottom: 100px;
+}
+
+.past {
+    background-color: var(--primary_darker);
 }
 
 @media (max-width: 500px) {
@@ -11,6 +16,7 @@
     }
     .subtitle {
         text-align: center;
+        padding: 25px 0;
     }
 }
 
@@ -22,6 +28,7 @@
     }
     .subtitle {
         text-align: center;
+        padding: 25px 0;
     }
 }
 
@@ -32,6 +39,7 @@
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
     .subtitle {
-        text-align: center;
+        text-align: left;
+        padding: 25px 0;
     }
 }

@@ -1,14 +1,14 @@
 export const aboutTimelineData = [
     {
-        title: 'Title 1',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Neque viverra justo nec ultrices dui sapien eget mi. Nunc mattis enim ut tellus elementum sagittis vitae. Donec pretium vulputate sapien nec. Aenean vel elit scelerisque mauris pellentesque pulvinar. Vitae turpis massa sed elementum tempus egestas. Ut consequat semper viverra nam libero justo laoreet sit.'
+        title: 'Networking Events',
+        description: 'MTA provides students with opportunities to network with industry professionals, allowing them to gain valuable insights into the business and technology sectors.'
     },
     {
-        title: 'Title 2',
-        description: 'Duis ut diam quam nulla porttitor massa id. Egestas pretium aenean pharetra magna ac placerat. Tellus integer feugiat scelerisque varius morbi. Aliquet sagittis id consectetur purus ut faucibus pulvinar elementum integer. Urna et pharetra pharetra massa massa ultricies mi quis hendrerit. Commodo nulla facilisi nullam vehicula ipsum a arcu cursus. Ut aliquam purus sit amet luctus venenatis lectus magna.'
+        title: 'Data Workshops',
+        description: 'MTA hosts workshops and info sessions on various topics such as coding, data analysis, and project management. These sessions are designed to help students develop their skills and knowledge in both business and technology.'
     },
     {
-        title: 'Title 3',
-        description: 'Sed ullamcorper morbi tincidunt ornare massa. At tellus at urna condimentum mattis pellentesque. Pellentesque nec nam aliquam sem et tortor consequat id porta. Rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant. Neque vitae tempus quam pellentesque nec.'
+        title: 'Case Competitions',
+        description: 'MTA organizes case competitions where students can apply their knowledge and skills to real-world business problems. These competitions provide students with an opportunity to work in teams, develop their problem-solving skills, and gain valuable experience.'
     }
 ]

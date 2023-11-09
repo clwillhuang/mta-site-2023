@@ -1,33 +1,62 @@
 'use client'
 
-import { IClubEvent } from "@/models/Event";
-import { useState } from "react";
+import { IClubEvent, IClubEventData } from "@/models/Event";
+import { HTMLInputTypeAttribute, useState } from "react";
 import styles from '@/app/globals.css'
 import '@/app/globals.css'
 
-export default function ({ event }: { event: IClubEvent }) {
+export default function ({ event, create }: { event?: IClubEventData, create: boolean }) {
 
-    const [eventData, setEventData] = useState<IClubEvent>(event);
+    const defaultState: IClubEventData = {
+        id: '',
+        start_time: new Date(),
+        end_time: new Date(),
+        no_fixed_times: false,
+        can_signup: false,
+        description: '',
+        title: '',
+        location: '',
+        image_link: null,
+        body: '',
+    }
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
+    const [eventData, setEventData] = useState<IClubEventData>(
+        (!create && event) ? event : defaultState
+    );
+
+    const handleChange = (e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        let { name, value } = e.target;
+        if (name === 'no_fixed_times' || name === 'can_signup') {
+            value = e.target.checked
+        }
         setEventData((prevEvent: any) => ({
             ...prevEvent,
             [name]: value,
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: React.MouseEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const { _id, ...requestData } = event
-        const requestOptions = {
-            method: 'PATCH',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(eventData),
-        };
-        fetch(`http://localhost:3000/api/admin/events/${_id}`, requestOptions)
-            .then((response) => response.json())
-            // .then((data) => { window.location.replace('/admin') });
+        if (!create) {
+            const { id } = eventData
+            const requestOptions = {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(eventData),
+            };
+            fetch(`/api/admin/events/${id}`, requestOptions)
+                .then((response) => response.json())
+                .then((data) => { window.location.replace('/admin') });
+        } else {
+            const requestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(eventData),
+            };
+            fetch(`/api/admin/events/`, requestOptions)
+                .then((response) => response.json())
+                .then((data) => { window.location.replace('/admin') });
+        }
     };
 
     return (
@@ -36,68 +65,103 @@ export default function ({ event }: { event: IClubEvent }) {
                 Title
                 <br />
             </label>
-                <input
-                    type="text"
-                    name="title"
-                    value={event.title}
-                    onChange={handleChange}
-                />
+            <input
+                type="text"
+                name="title"
+                value={eventData.title}
+                onChange={handleChange}
+            />
             <br />
             <label htmlFor='location'>
                 Location
                 <br />
             </label>
-                <input
-                    type="text"
-                    name="location"
-                    value={eventData.location}
-                    onChange={handleChange}
-                />
+            <input
+                type="text"
+                name="location"
+                value={eventData.location}
+                onChange={handleChange}
+            />
             <br />
             <label>
                 Start Time
                 <br />
             </label>
-                <input
-                    type="datetime-local"
-                    name="start_time"
-                    value={eventData.start_time}
-                    onChange={handleChange}
-                />
+            <input
+                type="datetime-local"
+                name="start_time"
+                value={eventData.start_time}
+                onChange={handleChange}
+            />
             <br />
             <label htmlFor='end_time'>
                 End Time
                 <br />
             </label>
-                <input
-                    type="datetime-local"
-                    name="end_time"
-                    value={eventData.end_time}
-                    onChange={handleChange}
-                />
+            <input
+                type="datetime-local"
+                name="end_time"
+                value={eventData.end_time}
+                onChange={handleChange}
+            />
+            <br />
+            <label>
+                No Fixed Times
+                <br />
+            </label>
+            <input
+                type="checkbox"
+                name="no_fixed_times"
+                checked={eventData.no_fixed_times}
+                onChange={handleChange}
+            />
+            <br />
+            <label>
+                Can signup
+                <br />
+            </label>
+            <input
+                type="checkbox"
+                name="can_signup"
+                checked={eventData.can_signup}
+                onChange={handleChange}
+            />
             <br />
             <label htmlFor='description'>
-                Description
+                Description (140 characters max)
                 <br />
             </label>
-                <textarea
-                    rows={5}
-                    type="text"
-                    name="description"
-                    value={eventData.description}
-                    onChange={handleChange}
-                />
+            <textarea
+                rows={5}
+                type="text"
+                name="description"
+                value={eventData.description}
+                onChange={handleChange}
+                maxLength={140}
+            />
+            <br />
+            <label htmlFor='Body'>
+                Text Body
+                <br />
+            </label>
+            <textarea
+                rows={10}
+                type="text"
+                name="body"
+                value={eventData.body}
+                onChange={handleChange}
+            />
             <br />
             <label htmlFor='image_link'>
-                Image Link
+                Image Link (example: /images/power-bi-2023.jpg)
                 <br />
             </label>
-                <input
-                    type="text"
-                    name="image_link"
-                    value={eventData.image_link}
-                    onChange={handleChange}
-                />
+            <input
+                type="text"
+                name="image_link"
+                value={eventData.image_link}
+                onChange={handleChange}
+            />
             <button type="submit">Submit</button>
         </form>
     )

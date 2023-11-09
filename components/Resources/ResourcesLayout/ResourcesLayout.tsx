@@ -13,8 +13,8 @@ type ResourcesLayoutProps = {
  */
 const ResourcesLayout = ({ data, title }: ResourcesLayoutProps) => {
     return (
-        <div>
-            <h3>{title}</h3>
+        <div className={styles.layout}>
+            <h3 className={styles.title}>{title}</h3>
             <div className={styles.iconContainer}>
                 <div className={styles.iconParent}>
                     {data.map((resource, index) => <ResourcesCard key={`${index}`} resource={resource}/>)}
