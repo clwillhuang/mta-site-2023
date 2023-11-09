@@ -7,6 +7,7 @@ import SignupButton from '@/components/Events/SignupButton/SignupButton';
 import { notFound } from 'next/navigation';
 import MarkdownBody from '@/components/MarkdownBody/MarkdownBody';
 import PaddedLayout from '@/components/PaddedLayout/PaddedLayout';
+import customizeMetadata from '@/components/Head/Head';
 
 export default async function Page({ params }: { params: { id: string } }) {
 
@@ -56,3 +57,14 @@ export default async function Page({ params }: { params: { id: string } }) {
         </Layout>
     )
 }
+
+export async function generateMetadata({ params }: { params: { id: string } }) {
+
+    const id = params.id;
+    const data: IClubEventWithSignup | null = await getEventWithSignup(id);
+    if (!data || !data.event) return {}
+    return customizeMetadata({
+      title: data.event.title,
+      description: data.event.description
+    })
+  }

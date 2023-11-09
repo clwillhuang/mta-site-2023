@@ -2,13 +2,12 @@ import Layout from '@/components/Layout/Layout';
 import styles from './Team.module.css'
 import { teamData } from '@/data/team';
 import TeamMember from '@/components/TeamMember/TeamMember';
-import CustomHead from '@/components/Head/Head';
+import customizeMetadata from '@/components/Head/Head';
 import PaddedLayout from '@/components/PaddedLayout/PaddedLayout';
 
 export default async function Team() {
     return(
         <Layout>
-			<CustomHead title='Team' description='Meet the executive team.'/>
 			<PaddedLayout addNavbarPadding>
             <div id='team' className={styles.teamList} >
 				<h2>Executive Team 2023-2024</h2>
@@ -31,3 +30,9 @@ export default async function Team() {
         </Layout>
     )
 }
+
+export const metadata = customizeMetadata({
+    title: 'Team',
+    description: 'Meet the team behind the organization.',
+    disableCrawling: true
+})

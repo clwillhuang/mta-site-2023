@@ -49,7 +49,6 @@ export async function PATCH(
     }
 
     try {
-        console.log(event)
         const updatedEvent = await event.save();
         return NextResponse.json(updatedEvent, { status: 200 });
     } catch (err) {

@@ -21,9 +21,6 @@ const UserDetails = ({ session }: UserDetailsProps) => {
         });
     }   
 
-    console.log
-    console.log(session?.user?.image)
-
     if (session) {
         return (
             <li className={styles.parent}>

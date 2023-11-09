@@ -13,6 +13,13 @@ import { SlantDividerBottom } from '@/components/Dividers/SlantDividerBottom';
 import { SlantDividerTop } from '@/components/Dividers/SlantDividerTop';
 import Footer from '@/components/Footer/Footer';
 import HomepageImage from '@/public/power-bi-2023.jpg'
+import customizeMetadata from '@/components/Head/Head';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = customizeMetadata({
+	title: 'Management Technology Association',
+	description: 'Management Technology Association is a student group at the University of Toronto delivering events in data analytics and management.'
+})
 
 export default async function Home() {
 

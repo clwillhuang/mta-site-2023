@@ -5,6 +5,7 @@ import { Resource } from '@/models/Resource';
 import styles from './Resources.module.css';
 import { LayoutData, DataResults } from './page';
 import PaddedLayout from '@/components/PaddedLayout/PaddedLayout';
+import customizeMetadata from '@/components/Head/Head';
 
 export async function Resources() {
     const title = 'Resources';
@@ -42,7 +43,8 @@ export async function Resources() {
         );
     }
 
-    const header = <Header title='Resources' subtitle='Access select workshop resources, data analytics learning materials and event information' />;
+    const subtitle = 'Access select workshop resources, data analytics learning materials and event information.';
+    const header = <Header title={title} subtitle={subtitle} />;
 
     return (
         <Layout header={header}>
@@ -61,3 +63,4 @@ export async function Resources() {
         </Layout>
     );
 }
+

@@ -7,6 +7,7 @@ import { notFound } from 'next/navigation';
 import EventForm from '@/components/Admin/Event/EventForm/EventForm';
 import Layout from '@/components/Layout/Layout';
 import PaddedLayout from '@/components/PaddedLayout/PaddedLayout';
+import customizeMetadata from '@/components/Head/Head';
 
 export default async function Page({ params }: { params: { id: string } }) {
 
@@ -21,10 +22,12 @@ export default async function Page({ params }: { params: { id: string } }) {
 				<a href='/admin' className={styles.backLink}><FontAwesomeIcon icon={faChevronLeft} /> Back to Dashboard</a>
 				<h2>Modify event details</h2>
 				<p>ID: {event._id}</p>
-				<EventForm event={event} />
+				<EventForm event={event} create={false} />
 			</PaddedLayout>
 		</Layout>
 	);
 }
 
 export { Page }
+
+export const metadata = customizeMetadata({title: 'Edit event', disableCrawling: true})

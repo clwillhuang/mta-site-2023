@@ -5,6 +5,7 @@ import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import Layout from '@/components/Layout/Layout';
 import PaddedLayout from '@/components/PaddedLayout/PaddedLayout';
 import EventForm from '@/components/Admin/Event/EventForm/EventForm';
+import customizeMetadata from '@/components/Head/Head';
 
 export default async function Page() {
     return (
@@ -19,3 +20,5 @@ export default async function Page() {
 }
 
 export { Page }
+
+export const metadata = customizeMetadata({title: 'Add new event'})

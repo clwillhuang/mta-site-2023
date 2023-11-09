@@ -7,6 +7,7 @@ import Layout from '@/components/Layout/Layout';
 import { getResource } from '@/app/api/resources/[slug]/route';
 import ResourceForm from '@/components/Admin/Resource/ResourceForm/ResourceForm';
 import PaddedLayout from '@/components/PaddedLayout/PaddedLayout';
+import customizeMetadata from '@/components/Head/Head';
 
 export default async function Page({ params }: { params: { slug: string } }) {
 
@@ -29,3 +30,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
 }
 
 export { Page }
+
+export const metadata = customizeMetadata({title: 'Edit resource or page', disableCrawling: true})
+

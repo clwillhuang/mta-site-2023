@@ -5,6 +5,7 @@ import MarkdownBody from '@/components/MarkdownBody/MarkdownBody';
 import { getResource } from '@/app/api/resources/[slug]/route';
 import { IResource } from '@/models/Resource';
 import PaddedLayout from '@/components/PaddedLayout/PaddedLayout';
+import customizeMetadata from '@/components/Head/Head';
 
 export default async function Page({ params }: { params: { slug: string } }) {
 
@@ -31,3 +32,12 @@ export default async function Page({ params }: { params: { slug: string } }) {
         </Layout>
     )
 }
+
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+    const resource: IResource | null = await getResource(params.slug)
+    if (!resource) return {}
+    return customizeMetadata({
+      title: resource.title,
+      description: resource.description
+    })
+  }

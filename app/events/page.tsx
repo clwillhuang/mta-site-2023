@@ -6,11 +6,9 @@ import { IClubEvent } from '@/models/Event';
 import { getAllEvents } from '../api/events/route';
 import { AsymTriangleTop } from '@/components/Dividers/AsymTriangleTop';
 import PaddedLayout from '@/components/PaddedLayout/PaddedLayout';
+import customizeMetadata from '@/components/Head/Head';
 
 export default async function Page() {
-    const title = 'Events';
-    const subtitle = 'Browse upcoming and past events organized by MTA.'
-
     const events: IClubEvent[] | null = await getAllEvents();
 
     const now = new Date();
@@ -44,3 +42,9 @@ export default async function Page() {
         </Layout>
     )
 }
+
+export const metadata = customizeMetadata({
+    title: 'Events',
+    description: 'Browse upcoming and past events organized by MTA.',
+})
+

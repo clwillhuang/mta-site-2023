@@ -67,7 +67,6 @@ export async function PATCH(
 
     
     const body = await request.json();
-    console.log('body:', body)
 
     if (body.start_time != null) {
         event.start_time = body.start_time;
@@ -98,7 +97,6 @@ export async function PATCH(
     }
 
     try {
-        console.log(event)
         const updatedEvent = await event.save();
         return NextResponse.json(updatedEvent, { status: 200 });
     } catch (err) {

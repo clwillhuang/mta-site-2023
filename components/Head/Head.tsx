@@ -1,18 +1,22 @@
+import { Metadata } from 'next'
 import Head from 'next/head'
 
 type CustomHeadProps = {
-    title: string,
-    description?: string,
-    children?: JSX.Element[] | JSX.Element
+  title: string,
+  description?: string,
+  children?: JSX.Element[] | JSX.Element,
+  disableCrawling?: boolean
 }
 
-export default function CustomHead({title, description, children}: CustomHeadProps) {
-  return (
-    <Head>
-        <title>{title} | MTA UTSC</title>
-        {description && <meta name="description" content={description}/>}
-        <link rel="icon" href="/large-mta-logo.png" />
-        {children}
-    </Head>
-  )
+export default function customizeMetadata({ title, description, children }: CustomHeadProps): Metadata {
+  const robots = {
+    index: false,
+    follow: true,
+    nocache: true,
+  }
+  return {
+    title: `${title} | MTA UTSC`,
+    description,
+    robots 
+  }
 }

@@ -5,13 +5,13 @@ import SignupCard from '@/components/Profile/SignupCard'
 import { getMe, getMySignups } from '../api/me/route'
 import { redirect } from 'next/navigation'
 import PaddedLayout from '@/components/PaddedLayout/PaddedLayout'
+import customizeMetadata from '@/components/Head/Head'
 
 /**
  * Return the dashboard page for profile page
  */
 export default async function Page() {
     const data = await getMe();
-    console.log("data for me", data)
     const { signups, user } = data;
 
     if (!user) {
@@ -20,6 +20,7 @@ export default async function Page() {
 
     return (
         <Layout>
+            <generateMetadata title={'My Profile'} disableCrawling/>
             <PaddedLayout addNavbarPadding>
                 <h2>My account</h2>
                 <p className={styles.headline}>
