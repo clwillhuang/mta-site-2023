@@ -48,7 +48,7 @@ export default async function Page() {
                 <div key='admin/resources'>
                     {
                         resources && resources.map((res: IResource) => {
-                            return (<AdminResourcesCard resource={res} />)
+                            return (<AdminResourcesCard key={res.slug} resource={res} />)
                         })
                     }
                 </div>

@@ -32,7 +32,7 @@ export default async function Page() {
                 <strong>Role</strong>
                 <p>{user.role}</p>
                 <h3>Event Signups</h3>
-                <div>{signups && signups.map(signup => <SignupCard data={signup} />)}</div>
+                <div>{signups && signups.map(signup => <SignupCard data={signup} key={signup.id}/>)}</div>
             </PaddedLayout>
         </Layout>
     )

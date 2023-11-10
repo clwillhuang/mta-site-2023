@@ -16,7 +16,7 @@ export default function customizeMetadata({ title, description, children }: Cust
   }
   return {
     title: `${title} | MTA UTSC`,
-    description,
+    description: description ?? 'MTA',
     robots 
   }
 }

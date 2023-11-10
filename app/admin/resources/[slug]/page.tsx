@@ -29,7 +29,5 @@ export default async function Page({ params }: { params: { slug: string } }) {
 	);
 }
 
-export { Page }
-
 export const metadata = customizeMetadata({title: 'Edit resource or page', disableCrawling: true})
 

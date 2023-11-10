@@ -58,8 +58,7 @@ export default async function Page({ params }: { params: { id: string } }) {
     )
 }
 
-export async function generateMetadata({ params }: { params: { id: string } }) {
-
+export async function generateMetadata({ params }) {
     const id = params.id;
     const data: IClubEventWithSignup | null = await getEventWithSignup(id);
     if (!data || !data.event) return {}

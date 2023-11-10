@@ -7,7 +7,7 @@ type NavbarProps = {
     session: Session | null,
 }
 
-export default function (props: NavbarProps) {
+export default function Navbar(props: NavbarProps) {
 
     const links = [
         {

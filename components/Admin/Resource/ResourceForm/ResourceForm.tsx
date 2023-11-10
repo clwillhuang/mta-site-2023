@@ -4,7 +4,7 @@ import { useState } from "react";
 import styles from './ResourceForm.module.css'
 import { IResource } from "@/models/Resource";
 
-export default function ({ resource, create }: { resource: IResource | null, create: boolean }) {
+export default function ResourceForm({ resource, create }: { resource: IResource | null, create: boolean }) {
 
     const [formData, setFormData] = useState<any>(
         !create ? resource :

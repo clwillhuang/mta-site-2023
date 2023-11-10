@@ -8,6 +8,7 @@ import EventForm from '@/components/Admin/Event/EventForm/EventForm';
 import Layout from '@/components/Layout/Layout';
 import PaddedLayout from '@/components/PaddedLayout/PaddedLayout';
 import customizeMetadata from '@/components/Head/Head';
+import { Metadata } from 'next';
 
 export default async function Page({ params }: { params: { id: string } }) {
 
@@ -28,6 +29,5 @@ export default async function Page({ params }: { params: { id: string } }) {
 	);
 }
 
-export { Page }
 
-export const metadata = customizeMetadata({title: 'Edit event', disableCrawling: true})
+export const metadata: Metadata = customizeMetadata({title: 'Edit event', disableCrawling: true})

@@ -19,6 +19,4 @@ export default async function Page() {
     );
 }
 
-export { Page }
-
 export const metadata = customizeMetadata({title: 'Add new event'})

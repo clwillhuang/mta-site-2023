@@ -2,7 +2,7 @@
 
 import styles from './ContactForm.module.css'
 
-export default () => {
+export default function ContactForm() {
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -26,7 +26,7 @@ export default () => {
             <div className={styles.contact}>
                 <div className={styles.contactLeft}>
                     <h2>Contact</h2>
-                    <p>We'd love to get in touch!</p>
+                    <p>We would love to get in touch!</p>
 
                     <form onSubmit={handleSubmit} className={styles.form} encType="text/plain">
                         <label htmlFor="senderName">Name</label>

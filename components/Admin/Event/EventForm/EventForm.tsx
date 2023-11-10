@@ -5,7 +5,7 @@ import { HTMLInputTypeAttribute, useState } from "react";
 import styles from '@/app/globals.css'
 import '@/app/globals.css'
 
-export default function ({ event, create }: { event?: IClubEventData, create: boolean }) {
+export default function EventForm({ event, create }: { event?: IClubEventData, create: boolean }) {
 
     const defaultState: IClubEventData = {
         id: '',

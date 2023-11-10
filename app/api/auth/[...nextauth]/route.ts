@@ -25,7 +25,7 @@ export const authOptions = {
     })
   ],
   callbacks: {
-    async signIn({ user, account, profile, credentials }: { user: any; account: any; profile: Profile; credentials: any; }) {
+    async signIn({ user, account, profile, credentials }: { user: any; account: any; profile?: Profile | undefined; credentials?: any; }) {
       if (!profile) {
         return false;
       }
@@ -36,7 +36,7 @@ export const authOptions = {
         username: profile.name,
         provider: account.provider,
         email: profile.email,
-        picture: profile.picture,
+        picture: profile.picture ?? '',
       };
       const existingUser = await User.findOne({ googleId: userData.googleId, provider: userData.provider });
       if (existingUser) {
@@ -59,7 +59,7 @@ export const authOptions = {
     async jwt({ token, account, profile }) {
       // console.log('JWT CALLBACK', token, account, profile)
       // Persist the OAuth access_token and or the user id to the token right after signin
-      if (account) {
+      if (account && profile) {
         token.accessToken = account.access_token;
         token.sub = profile.sub;
         token.provider = account.provider;
@@ -81,7 +81,7 @@ const handler = NextAuth(authOptions)
 
 // Use it in server contexts
 export function auth(...args: [GetServerSidePropsContext["req"], GetServerSidePropsContext["res"]] | [NextApiRequest, NextApiResponse] | []) {
-  return getServerSession(...args, config)
+  return getServerSession(...args, authOptions)
 }
 
 export { handler as GET, handler as POST }

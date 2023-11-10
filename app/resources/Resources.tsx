@@ -52,7 +52,7 @@ export async function Resources() {
                 <div className={styles.list}>
                     {data.map((layoutData: DataResults) => {
                         if (layoutData.data && layoutData.data.length > 0) {
-                            return <ResourcesLayout title={layoutData.title} data={layoutData.data} />;
+                            return <ResourcesLayout key={`title${layoutData.title}`} title={layoutData.title} data={layoutData.data} />;
                         }
                         else {
                             return <></>;

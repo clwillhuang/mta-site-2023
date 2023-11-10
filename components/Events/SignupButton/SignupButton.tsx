@@ -8,7 +8,7 @@ import { ISignup } from '@/models/Signup'
 /**
  * Show a signup button for users.
  */
-export default ({signup, _id}: {signup: ISignup | null, _id: string}) => {
+export default function SignupButton({signup, _id}: {signup: ISignup | null, _id: string}) {
 
     const [isSignedUp, setIsSignedUp] = useState(!!signup);
     const options = { month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true }
