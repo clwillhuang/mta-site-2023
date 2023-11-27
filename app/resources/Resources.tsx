@@ -5,7 +5,7 @@ import { Resource } from '@/models/Resource';
 import styles from './Resources.module.css';
 import { LayoutData, DataResults } from './page';
 import PaddedLayout from '@/components/PaddedLayout/PaddedLayout';
-import customizeMetadata from '@/components/Head/Head';
+import dbConnect from '@/lib/dbConnect';
 
 export async function Resources() {
     const title = 'Resources';
@@ -22,8 +22,10 @@ export async function Resources() {
     ];
 
     // manually retrieve all pages of each tag type
+    
     const data: DataResults[] = await Promise.all(
         pageContent.map(async (layout: LayoutData): Promise<DataResults> => {
+            await dbConnect()
             const result = await Resource.find({ tags: { $in: layout.query } }).limit(3);
             return {
                 title: layout.title,

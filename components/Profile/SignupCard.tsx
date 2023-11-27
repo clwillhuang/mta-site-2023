@@ -11,6 +11,7 @@ const SignupCard = ({data}: { data: ISignupWithEventData}) => {
             return(``)
         }
         const { eventData: { start_time, end_time } } = data;
+        const options = { month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true }
 
         const startDate = new Date(start_time)
         const endDate = new Date(end_time)
@@ -23,7 +24,7 @@ const SignupCard = ({data}: { data: ISignupWithEventData}) => {
         } else {
             return(`${startString} - ${endString}`)
         }
-    }, [data, options])
+    }, [data])
     
     if (data.eventData) {
         return(

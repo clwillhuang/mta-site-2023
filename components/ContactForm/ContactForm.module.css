@@ -5,6 +5,10 @@
   position: relative;
 }
 
+.form label, .form input, .form textarea {
+  width: 100%;
+}
+
 @media (max-width: 500px) {
 
   .screenContainer {
@@ -70,11 +74,11 @@
   }
 
   .contactLeft {
-      width: 70%;
+      width: 40%;
   }
 
   .contactRight {
-      width: 30%;
+      width: 60%;
   }
 
 }

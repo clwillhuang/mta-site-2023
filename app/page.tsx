@@ -94,7 +94,7 @@ export default async function Home() {
 			</div>
 				
 			<div className={styles.events}>
-				<h2 className={styles.eventTitle}>Fall 2023 Events</h2>
+				<h2 className={styles.eventTitle}>2023-2024 Events</h2>
 				<div className={styles.eventBar}>
 					{
 						homePageEvents.map(eventData => <HomepageEvent key={eventData.title} {...eventData}/>)

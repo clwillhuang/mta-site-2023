@@ -3,7 +3,7 @@ import { authOptions } from "./[...nextauth]/route"
 import dbConnect from "@/lib/dbConnect"
 import { NextApiRequest, NextApiResponse } from "next"
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+export default async function GetMe(req: NextApiRequest, res: NextApiResponse) {
   const session = await getServerSession(req, res, authOptions)
 
   if (session) {
