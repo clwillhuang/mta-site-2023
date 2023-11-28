@@ -101,10 +101,6 @@ export default async function Home() {
 					}
 				</div>
 			</div>
-			<div style={{height: '50px', position: 'relative'}}>
-				<SlantDividerTop/>
-			</div>
-			<ContactForm/>
 			<Footer/>
 		</>
 	)

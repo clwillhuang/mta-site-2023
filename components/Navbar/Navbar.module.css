@@ -28,6 +28,7 @@
     font-weight: 800;
     font-size: 30px;
     line-height: 40px;
+    margin-right: auto;
 }
 
 .logo img {
@@ -119,8 +120,8 @@
         right: 20px;
         left: 20px;
         border-radius: 10px;
-        border: solid var(--accent) 1px;
-        background: var(--primary);
+        /* border: solid var(--accent) 1px; */
+        /* background: var(--primary); */
     }
     .list li {
         display: block;
