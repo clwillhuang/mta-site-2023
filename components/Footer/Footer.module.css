@@ -97,6 +97,9 @@
 }
 
 @media (max-width: 768px) {
+    .logo {
+        margin: auto;
+    }
     .inner {
         display: flex;
         flex-direction: column;

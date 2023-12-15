@@ -20,7 +20,7 @@
 
   .about {
     text-align: center;
-    background-color: var(--primary);
+    background-color: var(--primary_darker);
     z-index: 5;
   }
 }
@@ -178,5 +178,6 @@
 .eventBar {
   display: flex;
   justify-content: center;
+  position: relative;
 }
 

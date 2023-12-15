@@ -1,7 +1,11 @@
-import React from 'react'
+"use client"
+
+import React, { useState } from 'react'
 import styles from './Navbar.module.css'
 import UserDetails from '@/components/Navigation/UserDetails/UserDetails'
 import { Session } from 'next-auth'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 
 type NavbarProps = {
     session: Session | null,
@@ -37,15 +41,17 @@ export default function Navbar(props: NavbarProps) {
         },
     ]
 
+    const [active, setActive] = useState(false);
+
     return (
         <header className={styles.header}>
-            <div className={styles.inner}>
-                <nav>
+            <nav className={styles.nav}>
+                <div className={styles.inner}>
                     <a href="/" className={styles.logo}>
                         <img src='/large-mta-logo.png'></img>
                     </a>
-                    <input type="checkbox" id="nav" className={styles.toggle} /><label htmlFor="nav"></label>
-                    <ul className={styles.list}>
+                    <FontAwesomeIcon icon={faBars} className={styles.toggle} onClick={() => setActive(!active)} />
+                    <ul className={styles.desktopMenu}>
                         {links.map(x => {
                             return <li key={x.title}>
                                 <a href={x.link}>{x.title}</a>
@@ -55,10 +61,25 @@ export default function Navbar(props: NavbarProps) {
                                     </ul>}
                             </li>
                         })}
-                        <UserDetails session={props.session}/>
+                        <UserDetails session={props.session} />
                     </ul>
-                </nav>
-            </div>
+                </div>
+                <div>
+                    <ul className={active ? styles.mobileMenu : styles.hideMenu}>
+                        {links.map(x => {
+                            return <li key={x.title}>
+                                <a href={x.link}>{x.title}</a>
+                                {x.sublinks.length > 0 &&
+                                    <ul>
+                                        {x.sublinks.map(sublink => <li key={sublink.title}><a href={sublink.link}>{sublink.title}</a></li>)}
+                                    </ul>}
+                            </li>
+                        })}
+                        <UserDetails session={props.session} />
+                    </ul>
+                </div>
+                    
+            </nav>
         </header>
     )
 }

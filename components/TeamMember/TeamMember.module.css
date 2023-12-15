@@ -1,10 +1,23 @@
 .memberItem p {
-    color: rgb(199, 199, 199);
-  }
+  color: rgb(199, 199, 199);
+}
 
+.memberItem {
+  padding: 10px;
+  text-align: center;
+}
+
+@media (min-width: 500px) {
   .memberItem {
-    text-align: center;
+    width: 200px;
   }
+}
+
+@media (max-width: 500px) {
+  .memberItem {
+    width: 50%;
+  }
+}
 
 .imgContainer {
   margin: 0 auto 10px auto;

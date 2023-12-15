@@ -14,35 +14,29 @@
 
 .header nav {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .inner {
+    display: flex;
     margin: 0;
     padding: 20px 20px;
     position: relative;
-}
-
-.logo {
-    text-decoration: none;
-    font-weight: 800;
-    font-size: 30px;
-    line-height: 40px;
-    margin-right: auto;
+    width: 100%;
+    overflow: hidden;
 }
 
 .logo img {
     height: 60px;
 }
 
-.list {
-    float: right;
+.desktopMenu, .mobileMenu {
     list-style-type: none;
     margin-left: auto;
     margin-top: auto;
 }
 
-.list > li {
+.desktopMenu > li, .mobileMenu > li {
     font-size: 18px;
     text-align: center;
     line-height: 40px;
@@ -54,97 +48,71 @@
     text-align: left;
 }
 
-.list > li > a:hover {
+.desktopMenu > li > a:hover, .mobileMenu > li > a:hover {
     cursor: pointer;
     position: relative;
     text-decoration: underline;
 }
 
-.list li:hover > ul {
-    display: block;
+.logo, .toggle, .desktopMenu {
+    display: inline-block;
 }
 
-.list > li > a {
-    cursor: pointer;
-    display: block;
-    outline: none;
-    width: 100%;
-    text-decoration: none;
+@media (min-width: 768px) {
+    .mobileMenu, .hideMenu, .toggle {
+        display: none;
+    }
+    .desktopMenu {
+        float: right;
+        margin-top: auto;
+    }
+    .desktopMenu li:hover > ul, .mobileMenu li:hover > ul {
+        display: block;
+    }
+    .desktopMenu > li > a, .mobileMenu > li > a {
+        cursor: pointer;
+        display: block;
+        outline: none;
+        width: 100%;
+        text-decoration: none;
+    }
+    .desktopMenu > li, .mobileMenu > li {
+        float: left;
+    }
 }
 
-.list > li {
-    float: left;
-}
-.list > li > ul {
-    display: none;
-    position: absolute;
-    left: 0;
-    top: 100%;
-    width: 100%;
-    z-index: 2000;
-}
-.list > li > ul li > a {
-    text-decoration: none;
-}
-
-.toggle {
-    display: none;
-}
 @media screen and (max-width: 768px) {
-    .list {
+    .desktopMenu {
+        display: none;
+    }
+    .hideMenu {
         display: none;
     }
     .toggle {
-        display: block;
         background: #10096e;
         width: 40px;
         height: 40px;
         cursor: pointer;
-        float: right;
-        margin: auto 0;
-        background-color: transparent;
+        float: right; 
+        margin: auto 0 auto auto;
+        background-color: transparent; 
     }
-    .toggle:after {
-        content: '';
-        display: block;
-        width: 30px;
-        height: 5px;
-        background: #122c81;
-        margin: 7px 5px;
-        box-shadow: 0px 10px 0px #122c81, 0px 20px 0px #122c81
-    }
-    [type="checkbox"]:checked ~ .list {
+    .mobileMenu {
         display: block;
         z-index: 9999;
-        position: absolute;
         right: 20px;
         left: 20px;
         border-radius: 10px;
-        /* border: solid var(--accent) 1px; */
-        /* background: var(--primary); */
+        width: 100%;
     }
-    .list li {
+    .mobileMenu li {
         display: block;
         float: none;
         width: 100%;
         text-align: left;
         text-indent: 20px;
     }
-    .list > li {
+    .mobileMenu > li {
         margin-left: 0px;
     }
-    .list > li > ul > li {
-        display: block;
-        float: none;
-    }
-    .list > li > ul {
-        display: block;
-        position: relative;
-        width: 100%;
-        z-index: 9999;
-        float: none;
-    }
-    /* h1 {
-        font-size: 26px;
-    } */
 }

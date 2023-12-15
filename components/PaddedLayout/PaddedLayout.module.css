@@ -1,10 +1,24 @@
-.container {
-    padding-right: 15%;
-    padding-left: 15%;
-    min-height: 100vh;
+@media (min-width: 500px) {
+    .container {
+        padding-right: 15%;
+        padding-left: 15%;
+        min-height: 100vh;
+    }
+    .navbarPadding {
+        padding-top: 20vh;
+        padding-bottom: 0;
+    }
 }
 
-.navbarPadding {
-    padding-top: 20vh;
-    padding-bottom: 0;
+@media (max-width: 500px) {
+    .container {
+        padding: 15px;
+        min-height: 100vh;
+    }
+    .navbarPadding {
+        padding-top: 15vh;
+        padding-bottom: 0;
+    }
 }
+
+

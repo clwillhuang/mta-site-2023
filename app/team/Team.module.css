@@ -1,20 +1,17 @@
 .teamTitle {
   font-size: 1.5em;
-  margin: 25px 0 10px 0;
+  margin: 0;
 }
 
 @media (max-width: 500px) {
-
   .teamList {
     padding: 10px;
   }
-
 }
 
 @media (min-width: 500px) {
-
   .teamList {
-    padding: 80px;
+    padding: 25px 0;
   }
 }
 
@@ -22,13 +19,17 @@
   font: bold;
 }
 
-.teamList>div {
-  background-color: transparent;
+.teamGrid {
+  place-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.teamGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-gap: 10px;
+.teamGroup {
+  background-color: var(--primary_darker);
+  border-radius: 15px;
+  padding: 15px 10px;
+  margin: 10px;
 }
 

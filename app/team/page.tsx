@@ -14,7 +14,7 @@ export default async function Team() {
 				{
 					teamData.map((team, index) => {
 						return (
-							<div key={`${team.name}_${index}`}>
+							<div className={styles.teamGroup} key={`${team.name}_${index}`}>
 								<h3 className={styles.teamTitle}>{team.name}</h3>
 								<div className={styles.teamGrid}>
 									{

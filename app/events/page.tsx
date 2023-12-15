@@ -17,7 +17,7 @@ export default async function Page() {
     const header = <div />
     return (
         <Layout header={header}>
-            <PaddedLayout className={styles.upcoming} addNavbarPadding>
+            <div className={styles.upcoming}>
                 <h2 className={styles.subtitle}>Upcoming Events</h2>
                 <div className={styles.grid}>
                     {
@@ -27,9 +27,9 @@ export default async function Page() {
                             <p>No upcoming events are visible at the current time. For more updates, view our Instagram.</p>
                     }
                 </div>
-            </PaddedLayout>
-            <AsymTriangleTop />
-            <PaddedLayout className={styles.past}>
+                <AsymTriangleTop />
+            </div>
+            <div className={styles.past}>
                 <h2 className={styles.subtitle}>Past Events</h2>
                 <div className={styles.grid}>
                     {
@@ -38,7 +38,7 @@ export default async function Page() {
                         )
                     }
                 </div>
-            </PaddedLayout>
+            </div>
         </Layout>
     )
 }

@@ -11,7 +11,7 @@ export type HomepageEventProps = {
 
 function HomepageEvent({title, link, description, image}: HomepageEventProps) {
   return (
-    <div className={styles.serviceElement}>
+    <div className={styles.eventCard}>
       <a className={styles.link} href={link}/>
       <div className={styles.imgContainer}>
         <Image src={image}

@@ -48,10 +48,21 @@
     display: grid;
 }
 
+@media (min-width: 500px) {
+    .headerContent {
+        margin: 15px 20vw;
+    }
+}
+
+@media (max-width: 500px) {
+    .headerContent {
+        margin: 15px;
+    }
+}
+
 .headerContent {
     display: flex;
     flex-direction: column;
-    margin: 15px 20vw;
     align-items: center;
     opacity: 1;
 }
