@@ -2,25 +2,25 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendar, faLocationDot, faUserCheck } from '@fortawesome/free-solid-svg-icons'
 import styles from './Event.module.css'
 import Layout from '@/components/Layout/Layout';
-import { IClubEventWithSignup, getEventWithSignup } from '@/app/api/events/[id]/route';
+import { IClubEventWithSignup, getEventWithSignupWithSlug } from '@/app/api/events/[id]/route';
 import SignupButton from '@/components/Events/SignupButton/SignupButton';
 import { notFound } from 'next/navigation';
 import MarkdownBody from '@/components/MarkdownBody/MarkdownBody';
 import PaddedLayout from '@/components/PaddedLayout/PaddedLayout';
 import customizeMetadata from '@/components/Head/Head';
 
-export default async function Page({ params }: { params: { id: string } }) {
+export default async function Page({ params }: { params: { slug: string } }) {
 
-    const id = params.id;
-    const data: IClubEventWithSignup | null = await getEventWithSignup(id);
+    const slug = params.slug;
+    const data: IClubEventWithSignup | null = await getEventWithSignupWithSlug(slug);
     if (!data) notFound();
 
     const { signup, event } = data;
     if (!event) notFound();
 
-    const { start_time, end_time, description, title, location, image_link, body } = event;
+    const { _id: id, start_time, end_time, description, title, location, image_link, body } = event;
     const no_fixed_times = event?.no_fixed_times ?? false;
-    const can_signup = event?.no_fixed_times ?? false;
+    const can_signup = event?.can_signup ?? false;
 
     const options = { month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true }
 
@@ -58,9 +58,9 @@ export default async function Page({ params }: { params: { id: string } }) {
     )
 }
 
-export async function generateMetadata({ params }) {
-    const id = params.id;
-    const data: IClubEventWithSignup | null = await getEventWithSignup(id);
+export async function generateMetadata({ params }: {params: {slug: string}}) {
+    const slug = params.slug;
+    const data: IClubEventWithSignup | null = await getEventWithSignupWithSlug(slug);
     if (!data || !data.event) return {}
     return customizeMetadata({
       title: data.event.title,

@@ -5,7 +5,7 @@ type LayoutProps = {
     children?: JSX.Element[] | JSX.Element
     className?: string,
     style?: CSSProperties,
-    addNavbarPadding?: boolean
+    addNavbarPadding?: boolean,
 }
 
 export default async function PaddedLayout({ children, style, className, addNavbarPadding }: LayoutProps) {

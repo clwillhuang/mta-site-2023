@@ -31,7 +31,7 @@ export default function SignupButton({signup, _id}: {signup: ISignup | null, _id
         fetch(`/api/events/${_id}/signups`, requestOptions)
             .then((response) => response.json())
             .then((data) => { 
-                console.log(data)
+                console.log('signup data:', data)
             });
     }, [_id])
 

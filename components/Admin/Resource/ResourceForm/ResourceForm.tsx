@@ -45,9 +45,9 @@ export default function ResourceForm({ resource, create }: { resource: IResource
     return (
         <form className={styles.form} onSubmit={handleSubmit}>
             <label>Title</label>
-            <input type="text" name="title" value={formData.title} onChange={handleChange}/>
+            <input type="text" name="title" value={formData.title} onChange={handleChange} required/>
             <label>Slug</label>
-            <input type="text" name="slug" value={formData.slug} onChange={handleChange}/>
+            <input type="text" name="slug" value={formData.slug} onChange={handleChange} required/>
             <label>Byline</label>
             <input type="text" name="byline" value={formData.byline} onChange={handleChange}/>
             <label>Tags (comma separated)</label>
@@ -55,7 +55,7 @@ export default function ResourceForm({ resource, create }: { resource: IResource
             <label>Description</label>
             <textarea rows={5} type="text" name="description" value={formData.description} onChange={handleChange}/>
             <label>Body (Markdown)</label>
-            <textarea rows={5} type="text" name="markdown" value={formData.markdown} onChange={handleChange}/>
+            <textarea rows={5} type="text" name="markdown" value={formData.markdown} onChange={handleChange} required/>
             <button type="submit">Submit</button>
         </form>
     )

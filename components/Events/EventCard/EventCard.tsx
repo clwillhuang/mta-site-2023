@@ -6,7 +6,7 @@ import { faCalendar, faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { IClubEvent } from '@/models/Event';
 
 function EventCard({ data }: { data: IClubEvent }) {
-    const { _id, start_time, end_time, description, title, location, image_link } = data;
+    const { _id, start_time, end_time, description, title, location, image_link, slug } = data;
     const no_fixed_times = data?.no_fixed_times ?? false;
 
     const timeString = useMemo(() => {
@@ -28,7 +28,7 @@ function EventCard({ data }: { data: IClubEvent }) {
 
     return (
         <div className={styles.event}>
-            <a href={`/events/${_id}`} className={styles.cardArea}/>
+            <a href={`/events/${slug}`} className={styles.cardArea}/>
             <div className={styles.imageContent}>
                 {image_link && <img src={image_link} alt={title} />}
             </div>

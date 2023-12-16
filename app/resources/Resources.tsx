@@ -49,8 +49,10 @@ export async function Resources() {
     const header = <Header title={title} subtitle={subtitle} />;
 
     return (
-        <Layout header={header}>
+        <Layout>
             <PaddedLayout addNavbarPadding>
+                <h2>{title}</h2>
+                <p>{subtitle}</p>
                 <div className={styles.list}>
                     {data.map((layoutData: DataResults) => {
                         if (layoutData.data && layoutData.data.length > 0) {

@@ -9,11 +9,14 @@ import Layout from '@/components/Layout/Layout';
 import PaddedLayout from '@/components/PaddedLayout/PaddedLayout';
 import customizeMetadata from '@/components/Head/Head';
 import { Metadata } from 'next';
+import { getEvent } from '@/app/api/events/[id]/route';
+import dbConnect from '@/lib/dbConnect';
 
 export default async function Page({ params }: { params: { id: string } }) {
 
 	const id = params.id;
-	const event = await ClubEvent.findById(id);
+	await dbConnect();
+	const event = await getEvent(id);
 
 	if (!event) notFound();
 
@@ -22,7 +25,7 @@ export default async function Page({ params }: { params: { id: string } }) {
 			<PaddedLayout addNavbarPadding>
 				<a href='/admin' className={styles.backLink}><FontAwesomeIcon icon={faChevronLeft} /> Back to Dashboard</a>
 				<h2>Modify event details</h2>
-				<p>ID: {event._id}</p>
+				<p>ID: {event._id.toString()}</p>
 				<EventForm event={event} create={false} />
 			</PaddedLayout>
 		</Layout>

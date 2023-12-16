@@ -1,14 +1,14 @@
 'use client'
 
 import { IClubEvent, IClubEventData } from "@/models/Event";
-import { HTMLInputTypeAttribute, useState } from "react";
+import { HTMLInputTypeAttribute, useEffect, useState } from "react";
 import styles from '@/app/globals.css'
 import '@/app/globals.css'
 
 export default function EventForm({ event, create }: { event?: IClubEventData, create: boolean }) {
 
     const defaultState: IClubEventData = {
-        id: '',
+        _id: '',
         start_time: new Date(),
         end_time: new Date(),
         no_fixed_times: false,
@@ -18,8 +18,9 @@ export default function EventForm({ event, create }: { event?: IClubEventData, c
         location: '',
         image_link: null,
         body: '',
+        slug: '',
     }
-
+    
     const [eventData, setEventData] = useState<IClubEventData>(
         (!create && event) ? event : defaultState
     );
@@ -38,15 +39,15 @@ export default function EventForm({ event, create }: { event?: IClubEventData, c
     const handleSubmit = (e: React.MouseEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (!create) {
-            const { id } = eventData
+            const { _id } = eventData
             const requestOptions = {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(eventData),
             };
-            fetch(`/api/admin/events/${id}`, requestOptions)
+            fetch(`/api/admin/events/${_id}`, requestOptions)
                 .then((response) => response.json())
-                .then((data) => { window.location.replace('/admin') });
+                // .then((data) => { window.location.replace('/admin') });
         } else {
             const requestOptions = {
                 method: 'POST',
@@ -70,6 +71,19 @@ export default function EventForm({ event, create }: { event?: IClubEventData, c
                 name="title"
                 value={eventData.title}
                 onChange={handleChange}
+                required
+            />
+            <br />
+            <label htmlFor='slug'>
+                Slug
+                <br />
+            </label>
+            <input
+                type="text"
+                name="slug"
+                value={eventData.slug}
+                onChange={handleChange}
+                required
             />
             <br />
             <label htmlFor='location'>
@@ -90,7 +104,7 @@ export default function EventForm({ event, create }: { event?: IClubEventData, c
             <input
                 type="datetime-local"
                 name="start_time"
-                value={eventData.start_time}
+                value={eventData.start_time.toISOString().slice(0, 16)}
                 onChange={handleChange}
             />
             <br />
@@ -101,7 +115,7 @@ export default function EventForm({ event, create }: { event?: IClubEventData, c
             <input
                 type="datetime-local"
                 name="end_time"
-                value={eventData.end_time}
+                value={eventData.end_time.toISOString().slice(0, 16)}
                 onChange={handleChange}
             />
             <br />
@@ -138,6 +152,7 @@ export default function EventForm({ event, create }: { event?: IClubEventData, c
                 value={eventData.description}
                 onChange={handleChange}
                 maxLength={140}
+                required
             />
             <br />
             <label htmlFor='Body'>
@@ -150,6 +165,7 @@ export default function EventForm({ event, create }: { event?: IClubEventData, c
                 name="body"
                 value={eventData.body}
                 onChange={handleChange}
+                required
             />
             <br />
             <label htmlFor='image_link'>
@@ -161,6 +177,7 @@ export default function EventForm({ event, create }: { event?: IClubEventData, c
                 name="image_link"
                 value={eventData.image_link}
                 onChange={handleChange}
+                required
             />
             <button type="submit">Submit</button>
         </form>

@@ -3,18 +3,6 @@
   margin: 0;
 }
 
-@media (max-width: 500px) {
-  .teamList {
-    padding: 10px;
-  }
-}
-
-@media (min-width: 500px) {
-  .teamList {
-    padding: 25px 0;
-  }
-}
-
 .teamList>h3 {
   font: bold;
 }
@@ -27,7 +15,8 @@
 }
 
 .teamGroup {
-  background-color: var(--primary_darker);
+  background-color: var(--primary_lighter);
+  border: solid white 1px;
   border-radius: 15px;
   padding: 15px 10px;
   margin: 10px;

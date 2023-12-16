@@ -38,6 +38,9 @@ export async function PATCH(
     if (body.title != null) {
         event.title = body.title;
     }
+    if (body.slug != null) {
+        event.slug = body.slug;
+    }
     if (body.location != null) {
         event.location = body.location;
     }

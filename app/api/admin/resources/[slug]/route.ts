@@ -32,6 +32,9 @@ export async function PATCH(
     if (body.tags != null) {
         resource.tags = body.tags;
     }
+    if (body.slug != null) {
+        resource.slug = body.slug;
+    }
     if (body.markdown != null) {
         resource.markdown = body.markdown;
     }

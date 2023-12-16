@@ -44,45 +44,42 @@
   margin-top: 30px;
 }
 
-.timelineContainer {
+.timelinePadding {
   display: flex;
   flex-direction: column;
-  position: relative;
+}
+
+.timelineContainer {
   background-color: var(--primary_darker);
 }
 
-.timelineLine {
-  position: absolute;
-  top: 50px;
-  bottom: 0;
-  left: calc(50% - 2px);
-  width: 8px;
-  height: calc(100% - 100px);
-  border: white inset 1px;
-  background-color: white;
+.timelineContent {
+  margin: auto 15%;
 }
 
-.timelineLeft,
-.timelineRight {
+.timelineContent, .itemContent {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.timelineLeft {
   flex-direction: row;
   position: relative;
 }
 
-.timelineLeft h3,
-.timelineRight h3 {
+.timelineLeft h3 {
   position: relative;
   font-size: 1.5em;
 }
 
 @media (max-width: 500px) {
 
-  .timelineLeft .arrow,
-  .timelineRight .arrow {
+  .timelineLeft .arrow {
     display: none;
   }
 
-  .timelineLeft,
-  .timelineRight {
+  .timelineLeft {
     text-align: center;
     width: 100%;
     z-index: 5;
@@ -92,8 +89,7 @@
     background-color: var(--primary);
   }
 
-  .timelineLeft p,
-  .timelineRight p {
+  .timelineLeft p {
     margin: 15px;
   }
 
@@ -104,16 +100,24 @@
   .eventBar {
     flex-direction: column;
   }
+
+  .timelineLine {
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    left: 50%;
+    width: 8px;
+    height: calc(100% - 100px);
+    border: white inset 1px;
+    background-color: white;
+  }
+
+  .svg {
+    display: none;
+  }
 }
 
 @media (min-width: 500px) {
-
-  .timelineLeft .arrow,
-  .timelineRight .arrow {
-    position: absolute;
-    border-bottom: white solid 4px;
-  }
-
   .timelineContainer {
     padding: 80px 80px 150px 80px;
   }
@@ -124,45 +128,41 @@
 
   .timelineLeft {
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
 
-  .timelineRight {
-    margin-left: 50%;
-    text-align: right;
-  }
-
-  .timelineLeft,
-  .timelineRight {
-    width: 50%;
-    display: inline-flex;
-  }
-
-  .timelineRight p {
-    margin-left: 20%;
+  .itemContent {
+    margin-left: 200px;
   }
 
   .eventBar {
     flex-direction: row;
   }
-}
 
+  .timelineLeft .arrow {
+    height: 50px;
+    z-index: 100;
+    width: 50px;
+    position: absolute;
+    border-bottom-left-radius: 50vh;
+    border-left: white solid 3px;
+    border-bottom: white solid 3px;
+    left: -30px;
+    top: -100%;
+  }
 
-.timelineLeft .arrow {
-  right: -2px;
-  left: 50%;
-  top: -20px;
-  bottom: 50%;
-  border-bottom-right-radius: 50vh;
-  border-right: white solid 3px;
-}
-
-.timelineRight .arrow {
-  right: 50%;
-  left: -2px;
-  top: -20px;
-  bottom: 50%;
-  border-bottom-left-radius: 50vh;
-  border-left: white solid 3px;
+  .timelineLine {
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    left: -2px;
+    width: 8px;
+    height: calc(100% - 100px);
+    border: white inset 1px;
+    background-color: white;
+  }
 }
 
 .events {
@@ -180,4 +180,3 @@
   justify-content: center;
   position: relative;
 }
-

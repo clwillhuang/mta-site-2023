@@ -2,12 +2,12 @@ import PropTypes from 'prop-types';
 import React, { useMemo } from 'react';
 import styles from './AdminEventCard.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCalendar, faLocationDot, faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faCalendar, faLocationDot, faPenToSquare, faTrash, faCode } from '@fortawesome/free-solid-svg-icons'
 import { IClubEvent } from '@/models/Event';
 import ClientButton from '@/components/ClientButton/ClientButton';
 
 function AdminEventCard({ data }: { data: IClubEvent }) {
-    const { _id, start_time, end_time, description, title, location } = data;
+    const { _id, start_time, end_time, description, title, location, slug } = data;
     const image_link = data.image_link ?? '';
     
     const timeString = useMemo(() => {
@@ -32,6 +32,7 @@ function AdminEventCard({ data }: { data: IClubEvent }) {
             <h3 className={styles.title}>{title}</h3>
             <p className={styles.time}><FontAwesomeIcon icon={faCalendar} /> {timeString}</p>
             <p className={styles.location}><FontAwesomeIcon icon={faLocationDot} /> {location}</p>
+            <p className={styles.location}><FontAwesomeIcon icon={faCode} /> Website Slug: /{slug}</p>
             <p className={styles.description}>{displayedDescription}</p>
             <div className={styles.actions}>
                 <a href={`/admin/events/${_id}`} className={styles.editButton}>

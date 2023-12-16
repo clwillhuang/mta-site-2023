@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './ResourceEdit.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+import faChevronLeft from '@fortawesome/free-solid-svg-icons/faChevronLeft'
 import { notFound } from 'next/navigation';
 import Layout from '@/components/Layout/Layout';
 import { getResource } from '@/app/api/resources/[slug]/route';
@@ -21,7 +21,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 			<PaddedLayout addNavbarPadding>
 				<a href='/admin' className={styles.backLink}><FontAwesomeIcon icon={faChevronLeft} /> Back to Dashboard</a>
 				<h2>Modify resource page details</h2>
-				<p>ID: {resource._id}</p>
+				<p>ID: {resource._id.toString()}</p>
 				<p>Slug: {resource.slug}</p>
 				<ResourceForm resource={resource} create={false} />
 			</PaddedLayout>
