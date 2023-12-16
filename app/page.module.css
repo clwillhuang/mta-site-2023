@@ -71,6 +71,7 @@
 .timelineLeft h3 {
   position: relative;
   font-size: 1.5em;
+  font-weight: bold;
 }
 
 @media (max-width: 500px) {
@@ -168,7 +169,7 @@
 .events {
   background-color: var(--primary_lighter);
   padding: 50px;
-  margin: -5px;
+  margin-top: -5px;
 }
 
 .eventTitle {

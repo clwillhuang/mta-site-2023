@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './ResourceEdit.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import faChevronLeft from '@fortawesome/free-solid-svg-icons/faChevronLeft'
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import { notFound } from 'next/navigation';
 import Layout from '@/components/Layout/Layout';
 import { getResource } from '@/app/api/resources/[slug]/route';

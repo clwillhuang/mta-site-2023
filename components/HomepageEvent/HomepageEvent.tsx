@@ -15,8 +15,7 @@ function HomepageEvent({title, link, description, image}: HomepageEventProps) {
       <a className={styles.link} href={link}/>
       <div className={styles.imgContainer}>
         <Image src={image}
-        objectFit='cover' 
-        layout='fill' 
+        fill
         alt={`Event image for ${title}`}/>
       </div>
       <h4 className={styles.title}>{title}</h4>

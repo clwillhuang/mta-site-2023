@@ -9,14 +9,29 @@
     height: 1.0em;
 }
 
-.image  {
-    height: 300px;
-    overflow: hidden;
+.imageContent {
+    margin: 15px 0;
+    position: relative;
+}
+
+.imageContent img {
+    object-fit: cover;
+    border-radius: 15px;
+    width: min-content;
+    max-width: 960px;
 }
 
 @media (max-width: 500px) {
     .imageContent {
         height: 20vh;
+        overflow: hidden;
+    }
+}
+
+@media (min-width: 500px) {
+    .imageContent {
+        height: 300px;
+        overflow: hidden;
     }
 }
 
@@ -25,16 +40,7 @@
 }
 
 .imageContent {
-    display: flex;
-    justify-content: left;
-    margin: 15px 0;
-}
-
-.image {
-    border-radius: 15px;
-    object-fit: cover;
-    margin: 0;
-    z-index: 0;
+    
 }
 
 .textContent {

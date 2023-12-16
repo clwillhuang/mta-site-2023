@@ -17,6 +17,12 @@
     position: relative;
 }
 
+.imgContainer img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
 .eventCard img {
     background-color: white;
 }
@@ -25,7 +31,8 @@
     text-decoration: underline;
 }
 
-.title, .description { 
+.title,
+.description {
     width: 100%;
     max-width: 100%;
     color: white;

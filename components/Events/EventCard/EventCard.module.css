@@ -15,6 +15,11 @@
 .imageContent  {
     width: 100%;
     overflow: hidden;
+    position: relative;
+}
+
+.imageContent img {
+    object-fit: cover;
 }
 
 @media (max-width: 500px) {

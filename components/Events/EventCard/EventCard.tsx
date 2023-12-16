@@ -4,6 +4,7 @@ import styles from './EventCard.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendar, faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { IClubEvent } from '@/models/Event';
+import Image from 'next/image'
 
 function EventCard({ data }: { data: IClubEvent }) {
     const { _id, start_time, end_time, description, title, location, image_link, slug } = data;
@@ -30,7 +31,7 @@ function EventCard({ data }: { data: IClubEvent }) {
         <div className={styles.event}>
             <a href={`/events/${slug}`} className={styles.cardArea}/>
             <div className={styles.imageContent}>
-                {image_link && <img src={image_link} alt={title} />}
+                {image_link && <Image fill src={image_link} alt={title} />}
             </div>
             <div className={styles.textContent}>
                 <h3 className={styles.title}>{title}</h3>
