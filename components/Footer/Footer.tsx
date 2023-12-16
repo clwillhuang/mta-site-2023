@@ -1,5 +1,7 @@
 import React from 'react'
 import styles from './Footer.module.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLinkedin, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons'
 
 function Footer() {
 
@@ -31,28 +33,40 @@ function Footer() {
         },
     ]
 
-  return (
-    <footer className={styles.header}>
-        <div className={styles.inner}>
-            <a href="#" className={styles.logo}>
-                <img src='/large-mta-logo.png'/>
-            </a>
-            <ul className={styles.list}>
-                {links.map(x => {
-                    return <li key={x.title}>
-                        <a href={x.link}>{x.title}</a>
-                        {x.sublinks.length > 0 && 
-                        <ul>
-                            {x.sublinks.map(sublink => <li key={sublink.title}><a href={sublink.link}>{sublink.title}</a></li>)}    
-                        </ul>}
-                    </li>
-                })}
-                <li><a href="#">Login</a></li>
-            </ul>
-        </div>
+    return (
+        <footer className={styles.header}>
+            <div className={styles.inner}>
+                <a href="#" className={styles.logo}>
+                    <img src='/large-mta-logo.png' />
+                </a>
+                <div className={styles.socials}>
+                    <a href="https://www.linkedin.com/company/mtautsc/">
+                        <FontAwesomeIcon icon={faLinkedin} size='2x' />
+                    </a>
+                    <a href="https://www.facebook.com/mtautsc/">
+                        <FontAwesomeIcon icon={faFacebook} size='2x'/>
+                    </a>
+                    <a href="https://www.instagram.com/mtautsc/">
+                        <FontAwesomeIcon icon={faInstagram} size='2x'/>
+                    </a>
+                </div>
+                <ul className={styles.list}>
+                    {links.map(x => {
+                        return <li key={x.title}>
+                            <a href={x.link}>{x.title}</a>
+                            {x.sublinks.length > 0 &&
+                                <ul>
+                                    {x.sublinks.map(sublink => <li key={sublink.title}><a href={sublink.link}>{sublink.title}</a></li>)}
+                                </ul>}
+                        </li>
+                    })}
+                    <li><a href="#">Login</a></li>
+                </ul>
+                
+            </div>
             <p className={styles.credits}>© 2023 Management Technology Association. All rights reserved.</p>
-    </footer>
-  )
+        </footer>
+    )
 }
 
 export default Footer

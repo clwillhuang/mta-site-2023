@@ -46,6 +46,7 @@
 .list li:hover {
     cursor: pointer;
     position: relative;
+    text-decoration: underline;
 }
 
 .list li:hover > ul {
@@ -128,4 +129,22 @@
         z-index: 100;
         float: none;
     }
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.socials > div {
+    margin: auto;
+}
+
+.socials a {
+    margin: 10px;
+}
+
+.socials svg {
+    margin: auto;
 }
