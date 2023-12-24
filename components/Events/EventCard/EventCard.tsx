@@ -13,7 +13,7 @@ function EventCard({ data }: { data: IClubEvent }) {
     const timeString = useMemo(() => {
         const startDate = new Date(start_time)
         const endDate = new Date(end_time)
-        const options = { month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true }
+        const options: Intl.DateTimeFormatOptions = { month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true }
     
         const startString = startDate.toLocaleString('en-US', options).replace('at', '@');
         const endString = endDate.toLocaleString('en-US', options).replace('at', '@');
