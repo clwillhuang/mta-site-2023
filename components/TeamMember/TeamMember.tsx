@@ -1,12 +1,18 @@
 import { TeamMember } from "@/models/TeamMember";
 import styles from './TeamMember.module.css'
 import Image from 'next/image'
+import BlurPlaceholder from "../BlurPlaceholder/BlurPlaceholder";
 
-const TeamMember = ({ title, name }: TeamMember) => {
+const TeamMember = ({ title, name, image }: TeamMember) => {
+	const imageSrc = image ?? '/bridge-workshop.jpg';
+
 	return (
 		<div className={styles.memberItem}>
 			<div className={styles.imgContainer}>
-				<Image src={'/bridge-workshop.jpg'} fill alt={`Event image for ${title}`} />
+				<Image src={imageSrc} fill alt={`Event image for ${title}`}
+				placeholder='blur'
+				blurDataURL={BlurPlaceholder(500, 500)}
+				/>
 			</div>
 			<h4>{name}</h4>
 			<p>{title}</p>

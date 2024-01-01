@@ -15,6 +15,7 @@ import Footer from '@/components/Footer/Footer';
 import HomepageImage from '@/public/power-bi-2023.jpg'
 import customizeMetadata from '@/components/Head/Head';
 import { Metadata } from 'next';
+import 'animate.css';
 
 export const metadata: Metadata = customizeMetadata({
 	title: 'Management Technology Association',
@@ -64,13 +65,13 @@ export default async function Home() {
 					{
 						timeline.map((point, index) => {
 							return (
-								<div className={styles.timelineLeft} key={index}>
+								<div className={styles.timelineLeft + ' ' + styles.timelineLeftBar + ' animate__animated animate__fadeIn'} key={index}>
 									<svg width='100%' viewBox="0 0 800 40" className={styles.svg}>
 										<line x1="0" y1="0" x2="150" y2="40" strokeWidth='3px' stroke='white'/>
 										<line x1="148" y1="40" x2="800" y2="40" strokeWidth='5px' stroke='white'/>
 									</svg>
 									<div className={styles.itemContent}>
-										<h3>{point.title}
+										<h3 className={styles.itemContenttitle}>{point.title}
 											{/* <div className={styles.arrow} /> */}
 										</h3>
 										<p>{point.description}</p>

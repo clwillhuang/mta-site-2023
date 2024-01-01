@@ -74,6 +74,10 @@
   font-weight: bold;
 }
 
+.itemContent .itemContenttitle {
+  color: rgb(42, 109, 255);
+}
+
 @media (max-width: 500px) {
 
   .timelineLeft .arrow {
@@ -119,6 +123,11 @@
 }
 
 @media (min-width: 500px) {
+
+  /* .timelineLeftBar:not(:last-child) {
+    border-left: 2px solid white;
+  } */
+
   .timelineContainer {
     padding: 80px 80px 150px 80px;
   }

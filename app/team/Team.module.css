@@ -4,11 +4,10 @@
 }
 
 .teamList>h3 {
-  font: bold;
+  font-weight: bold;
 }
 
 .teamGrid {
-  place-items: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

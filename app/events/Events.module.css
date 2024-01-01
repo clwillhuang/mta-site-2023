@@ -21,7 +21,7 @@
     .grid {
         gap: 10px;
         margin: 15px 15px 0 15px;
-        grid-template-columns: repeat(auto-fill, minmax(150px, calc(1fr - 20px)));
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }
     .subtitle {
         text-align: center;

@@ -10,5 +10,5 @@ export const aboutTimelineData = [
     {
         title: 'Case Competitions',
         description: 'MTA organizes case competitions where students can apply their knowledge and skills to real-world business problems. These competitions provide students with an opportunity to work in teams, develop their problem-solving skills, and gain valuable experience.'
-    }
+    },
 ]
