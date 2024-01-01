@@ -54,13 +54,13 @@ function Footer() {
                     {links.map(x => {
                         return <li key={x.title}>
                             <a href={x.link}>{x.title}</a>
-                            {x.sublinks.length > 0 &&
+                            {/* Future support for nested links: */}
+                            {/* {x.sublinks.length > 0 &&
                                 <ul>
                                     {x.sublinks.map(sublink => <li key={sublink.title}><a href={sublink.link}>{sublink.title}</a></li>)}
-                                </ul>}
+                                </ul>} */}
                         </li>
                     })}
-                    <li><a href="#">Login</a></li>
                 </ul>
                 
             </div>
