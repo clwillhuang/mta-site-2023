@@ -5,15 +5,3 @@
     border: 2px solid var(--accent);
     padding: 25px;
 }
-
-.title {
-    margin: 0;
-}
-
-.time {
-    margin: 0 auto;
-}
-
-.description {
-    margin: 0 auto;
-}

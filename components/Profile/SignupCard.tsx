@@ -1,6 +1,7 @@
 import { ISignupWithEventData } from "@/app/api/me/route";
 import { notFound } from "next/navigation";
 import { useMemo } from "react";
+import styles from './SignupCard.module.css'
 
 const SignupCard = ({data}: { data: ISignupWithEventData}) => {
 
@@ -28,14 +29,14 @@ const SignupCard = ({data}: { data: ISignupWithEventData}) => {
     
     if (data.eventData) {
         return(
-            <div>
+            <div className={styles.card}>
                 <p>{data.eventData.title}</p>
                 <p>{timeString}</p>
                 <p>You signed up {(new Date(data.date)).toLocaleString('en-US', options)}</p>
             </div>
         )
     } else {
-        notFound()
+        null
     }
 
 }

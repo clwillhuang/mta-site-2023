@@ -36,7 +36,7 @@ const UserDetails = ({ session }: UserDetailsProps) => {
                     <div className={styles.dropdown}>
                         <ul>
                             <li>
-                                <a href='/me'>My Profile</a>
+                                <a href='/profile'>My Profile</a>
                             </li>
                             <li>
                                 <a href='/admin'>Dashboard</a>

@@ -11,6 +11,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 import PaddedLayout from '@/components/PaddedLayout/PaddedLayout'
 import customizeMetadata from '@/components/Head/Head'
+import { IImageUploadData } from '@/models/ImageUpload'
+import { getAllImageData } from '../api/admin/uploads/route'
+import ImageCard from '@/components/Admin/Image/ImageCard'
 
 /**
  * Return the dashboard page for adminstrators
@@ -19,6 +22,7 @@ export default async function Page() {
 
     const events: IClubEvent[] | null = await getAllEvents();
     const resources: IResource[] | null = await getAllResources();
+    const uploads: IImageUploadData[] | null = await getAllImageData();
 
     const tabs: TabProp[] = [
         {
@@ -61,6 +65,23 @@ export default async function Page() {
                 <div key='admin/users' />
             ]
         },
+        {
+            title: 'Uploads',
+            key: 'uploads',
+            children: [
+                <a href='/admin/images' key='admin/resources link'>
+                    <FontAwesomeIcon icon={faPlusCircle} /> Upload new image
+                </a>,
+                uploads.length > 0 ? null : <div>There are no image uploads.</div>,
+                <div key='admin/uploads'>
+                    {
+                        uploads && uploads.map((data: IImageUploadData) => {
+                            return (<ImageCard key={data.slug} data={data}/>)
+                        })
+                    }
+                </div>,
+            ]
+        }
     ]
 
     return (
