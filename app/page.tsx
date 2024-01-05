@@ -67,8 +67,8 @@ export default async function Home() {
 							return (
 								<div className={styles.timelineLeft + ' ' + styles.timelineLeftBar + ' animate__animated animate__fadeIn'} key={index}>
 									<svg width='100%' viewBox="0 0 800 40" className={styles.svg}>
-										<line x1="0" y1="0" x2="150" y2="40" strokeWidth='3px' stroke='white'/>
-										<line x1="148" y1="40" x2="800" y2="40" strokeWidth='5px' stroke='white'/>
+										<line x1="0" y1="0" x2="150" y2="40" strokeWidth='3px' stroke='white' />
+										<line x1="148" y1="40" x2="800" y2="40" strokeWidth='5px' stroke='white' />
 									</svg>
 									<div className={styles.itemContent}>
 										<h3 className={styles.itemContenttitle}>{point.title}
@@ -96,6 +96,8 @@ export default async function Home() {
 					}
 				</div>
 			</div>
+			<div style={{height: '40px'}}/>
+			<ContactForm />
 			<Footer />
 		</>
 	)
