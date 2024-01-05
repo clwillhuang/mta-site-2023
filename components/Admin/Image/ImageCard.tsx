@@ -22,7 +22,7 @@ const ImageCard: React.FC<IImageUploadProps> = ({ data }) => {
             <div className={styles.contentDiv}>
                 <h3>Link</h3>
                 <p>{slug}</p>
-                <small>(Add image using "/api/uploads/{slug}")</small>
+                <small>{`(Add image using \"/api/uploads/${slug})\"`}</small>
                 <h3>Description</h3>
                 <p>{description}</p>
                 <h3>Alt</h3>
