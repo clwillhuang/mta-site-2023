@@ -55,10 +55,10 @@ export default async function Home() {
 			<NextAuthProvider>
 				<Navbar session={session} />
 			</NextAuthProvider>
-			<Header contentClassName={styles.content} title={title} subtitle={subtitle} image={headerImage} divider={<AsymTriangleTop />}>
+			<Header contentClassName={styles.content} title={title} subtitle={subtitle} image={headerImage} divider={<AsymTriangleTop id='about'/>}>
 				<img src='/large-mta-logo-transparent.png'></img>
 			</Header>
-			<div id='about' className={styles.timelineContainer}>
+			<div id='abouttimeline' className={styles.timelineContainer}>
 				<div className={styles.timelineContent}>
 					<div className={styles.timelineLine} />
 					<h2 className={styles.about}>About Us</h2>
@@ -96,7 +96,7 @@ export default async function Home() {
 					}
 				</div>
 			</div>
-			<div style={{height: '40px'}}/>
+			<div style={{ height: '40px' }} />
 			<ContactForm />
 			<Footer />
 		</>

@@ -37,7 +37,7 @@ function Footer() {
     return (
         <footer className={styles.header}>
             <div className={styles.inner}>
-                <a href="#" className={styles.logo}>
+                <a href="/" className={styles.logo}>
                     <img src='/large-mta-logo.png' />
                 </a>
                 <div className={styles.socials}>
