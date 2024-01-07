@@ -3,7 +3,7 @@
     background-color: var(--primary);
     max-width: 100vw;
     z-index: 10;
-    padding: 40px none 5px none;
+    padding: 40px 0 5px 0;
     margin: 0;
     border-top: solid var(--accent) 2px;
 }
@@ -81,7 +81,7 @@
 .credits {
     text-align: center;
     color: gray;
-    margin: 0 unset;
+    margin: 0 inherit;
     width: 100%;
 }
 

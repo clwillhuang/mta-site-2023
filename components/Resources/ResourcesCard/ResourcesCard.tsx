@@ -12,8 +12,7 @@ const ResourcesCard = ({resource}: ResourcesCardProps) => {
         <div className={styles.card}>
             <a className={styles.link} href={`/resources/${slug}`} />
             <h3 className={styles.title}>{title}</h3>
-            <p className={styles.date}>{initialPublish.toLocaleDateString()}</p>
-            <p className={styles.credits}>{byline}</p>
+            <p className={styles.date}>{initialPublish.toLocaleDateString()}, {byline}</p>
         </div>
     );
 }

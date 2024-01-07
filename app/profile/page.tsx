@@ -19,8 +19,7 @@ export default async function Page() {
     }
 
     return (
-        <Layout>
-            <generateMetadata title={'My Profile'} disableCrawling/>
+        <Layout header={<></>}>
             <PaddedLayout addNavbarPadding>
                 <h2>My account</h2>
                 <p className={styles.headline}>
@@ -31,9 +30,15 @@ export default async function Page() {
                 <p>{user.email}</p>
                 <strong>Role</strong>
                 <p>{user.role}</p>
-                <h3>Event Signups</h3>
-                <div>{signups && signups.map(signup => <SignupCard data={signup} key={signup.id}/>)}</div>
+                <strong>Event Signups</strong>
+                <div>{signups && signups.map((signup, index) => <SignupCard data={signup} key={'signup'+index}/>)}</div>
             </PaddedLayout>
         </Layout>
     )
 }
+
+export const metadata = customizeMetadata({
+    title: 'My profile',
+    description: 'View my account details.',
+    disableCrawling: true
+})

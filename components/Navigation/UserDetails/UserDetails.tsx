@@ -19,20 +19,24 @@ const UserDetails = ({ session }: UserDetailsProps) => {
         signOut({
             callbackUrl: '/'
         });
-    }   
+    }
 
     if (session) {
         return (
             <li className={styles.parent}>
                 <div className={styles.preview}>
-                    <img className={styles.userImage} src={session.user?.image} onClick={() => setActive(!active)}/>
+                    <img
+                        className={styles.userImage}
+                        src={session.user?.image}
+                        referrerPolicy="no-referrer"
+                        onClick={() => setActive(!active)} />
                 </div>
                 {
                     active &&
                     <div className={styles.dropdown}>
                         <ul>
                             <li>
-                                <a href='/me'>My Profile</a>
+                                <a href='/profile'>My Profile</a>
                             </li>
                             <li>
                                 <a href='/admin'>Dashboard</a>

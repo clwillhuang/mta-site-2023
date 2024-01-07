@@ -6,10 +6,10 @@
 .activeTabLabel {
     font-weight: bold;
     text-decoration: underline;
-    border: solid var(--accent) 2px;
+    /* border: solid var(--accent) 2px;
     border-bottom: 0;
     border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    border-top-right-radius: 5px; */
 }
 
 .inactiveTabLabel {

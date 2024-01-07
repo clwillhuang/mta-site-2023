@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import styles from './Header.module.css'
 import Image from 'next/image'
 import { AsymTriangleTop } from '../Dividers/AsymTriangleTop';
+import BlurPlaceholder from '../BlurPlaceholder/BlurPlaceholder';
 
 export type HeaderImageProps = {
     src: any,
@@ -24,7 +25,8 @@ const Header = ({ title, subtitle, children, contentClassName, image, divider }:
             {
             image &&
                 <div className={styles.imageContainer}>
-                    <Image src={image.src} fill={true} alt={image.alt} objectFit='cover' />
+                    <Image src={image.src} fill={true} alt={image.alt} objectFit='cover' placeholder='blur'
+                blurDataURL={BlurPlaceholder()} />
                 </div>
             }
             <div className={styles.headerBackground}/>

@@ -36,7 +36,7 @@ export default function Navbar(props: NavbarProps) {
         },
         {
             title: 'Contact',
-            link: '/#contact',
+            link: '/contact',
             sublinks: [],
         },
     ]

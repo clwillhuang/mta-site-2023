@@ -1,7 +1,7 @@
 import { getUser } from "@/app/getUser";
 import dbConnect from "@/lib/dbConnect";
-import ClubEvent, { IClubEvent } from "@/models/Event";
-import Signup, { ISignup } from "@/models/Signup";
+import ClubEvent, { IClubEvent, IClubEventData } from "@/models/Event";
+import Signup, { ISignup, ISignupData } from "@/models/Signup";
 import { IUser } from "@/models/User";
 
 export async function getMySignups(user: IUser): Promise<ISignup[] | null> {
@@ -9,8 +9,8 @@ export async function getMySignups(user: IUser): Promise<ISignup[] | null> {
     return await Signup.find({ user: user }).lean()
 }
 
-export interface ISignupWithEventData extends ISignup {
-    eventData: IClubEvent | null
+export interface ISignupWithEventData extends ISignupData {
+    eventData: IClubEventData | null
 }
 
 export type GetMeResult = {
@@ -28,7 +28,7 @@ export async function getMe(): Promise<GetMeResult> {
                 signups.map(
                     async (signup):
                         Promise<ISignupWithEventData> => {
-                        const data = await ClubEvent.findById(signup.event).lean();
+                        const data: IClubEventData | null = await ClubEvent.findById(signup.event).lean();
                         return { ...signup, eventData: data }
                     })
             )

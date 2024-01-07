@@ -15,6 +15,8 @@
     width: 100%;
     height: 200px;
     position: relative;
+    overflow: hidden;
+
 }
 
 .imgContainer img {
@@ -25,10 +27,15 @@
 
 .eventCard img {
     background-color: white;
+    transition: scale ease-in 0.2s;
 }
 
 .eventCard:hover .title {
     text-decoration: underline;
+}
+
+.eventCard:hover img {
+    scale: 1.1;
 }
 
 .title,

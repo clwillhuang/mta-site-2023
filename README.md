@@ -1,8 +1,26 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is the website for the Management Technology Association.
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app), configured to perform server-side rendering using data from MongoDB.
+
+## Integrations
+
+The website uses authentication powered by OAuth, currently provided by Google Cloud. Authentication will allow administrator users to make quick edits. In the future, we can allow club members to log in and indicate their interest / status for event participation.
+
+The website features server-side rendering using data from MongoDB. 
+
+To connect to OAuth supply the app with secrets in .env.local, as modelled by the example configuration in `.env.example`. Additional secrets are needed to connect to MongoDB. 
+
+For deployment to Vercel, provide the updated secrets as [environment variables on Vercel](https://vercel.com/docs/projects/environment-variables).
+
+## Deployment
+
+This app is deployed to [Vercel](https://vercel.com/docs/getting-started-with-vercel/import).
 
 ## Getting Started
 
-First, run the development server:
+First, setup integrations as specified above.
+
+Then, to run the development server:
 
 ```bash
 npm run dev
@@ -16,21 +34,11 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Contributing
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
+To add changes to the website, the following resources may be useful for learning Next.js:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

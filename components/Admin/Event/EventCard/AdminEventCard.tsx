@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React, { useMemo } from 'react';
 import styles from './AdminEventCard.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

@@ -20,6 +20,11 @@
 
 .imageContent img {
     object-fit: cover;
+    transition: scale ease-in 0.2s;
+}
+
+.event:hover img {
+    scale: 1.1;
 }
 
 @media (max-width: 500px) {

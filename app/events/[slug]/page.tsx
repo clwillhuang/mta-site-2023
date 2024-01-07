@@ -9,6 +9,7 @@ import MarkdownBody from '@/components/MarkdownBody/MarkdownBody';
 import PaddedLayout from '@/components/PaddedLayout/PaddedLayout';
 import customizeMetadata from '@/components/Head/Head';
 import Image from 'next/image'
+import BlurPlaceholder from '@/components/BlurPlaceholder/BlurPlaceholder';
 
 export default async function Page({ params }: { params: { slug: string } }) {
 
@@ -43,10 +44,18 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 <h2 className={styles.subtitle}>{event.title}</h2>
                 <div className={styles.event}>
                     <div className={styles.imageContent}>
-                        {image_link && <Image fill src={image_link} alt={title}/>}
+                        {image_link && 
+                        <Image fill src={image_link} alt={title}
+                        placeholder='blur'
+                        blurDataURL={BlurPlaceholder()}
+                        />}
                     </div>
                     <div>
-                        {no_fixed_times && <p className={styles.time}><FontAwesomeIcon icon={faCalendar} /> {timeString()}</p>}
+                        {
+                        !no_fixed_times && 
+                        <p className={styles.time}>
+                            <FontAwesomeIcon icon={faCalendar} /> {timeString()}</p>
+                        }
                         <p className={styles.location}><FontAwesomeIcon icon={faLocationDot} /> {location}</p>
                         {can_signup && <SignupButton _id={id} signup={signup} />}
                     </div>

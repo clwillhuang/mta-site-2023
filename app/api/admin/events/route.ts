@@ -14,7 +14,10 @@ export async function POST(request: Request) {
         title: body.title,
         location: body.location,
         image_link: body.image_link,
-        body: body.body
+        body: body.body,
+        can_signup: body.can_signup,
+        feature_on_homepage: body.feature_on_homepage,
+        no_fixed_times: body.no_fixed_times
     });
 
     try {

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import styles from './Tabs.module.css'
 
 export type TabProp = {
-    children: JSX.Element[];
+    children: (JSX.Element | null)[];
     title: string; 
     key: string;
 }

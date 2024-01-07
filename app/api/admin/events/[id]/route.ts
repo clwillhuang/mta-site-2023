@@ -26,6 +26,9 @@ export async function PATCH(
     if (body.no_fixed_times != null) {
         event.no_fixed_times = body.no_fixed_times;
     }
+    if (body.feature_on_homepage != null) {
+        event.feature_on_homepage = body.feature_on_homepage;
+    }
     if (body.can_signup != null) {
         event.can_signup = body.can_signup;
     }
