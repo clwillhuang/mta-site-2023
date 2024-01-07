@@ -102,7 +102,7 @@ export default function EventForm({ event, create }: { event?: IClubEventData, c
             />
             <br />
             <label htmlFor='slug'>
-                Slug (example: using "network-event" will publish it to https://mtautsc.com/events/network-event)
+                {`Slug (example: using \"network-event\" will publish it to https://mtautsc.com/events/network-event)`}
                 <br />
             </label>
             <input
