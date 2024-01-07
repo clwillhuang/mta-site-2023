@@ -10,6 +10,7 @@ import PaddedLayout from '@/components/PaddedLayout/PaddedLayout';
 import customizeMetadata from '@/components/Head/Head';
 import Image from 'next/image'
 import BlurPlaceholder from '@/components/BlurPlaceholder/BlurPlaceholder';
+import { domain } from '@/app/url';
 
 export default async function Page({ params }: { params: { slug: string } }) {
 
@@ -45,8 +46,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 <div className={styles.event}>
                     <div className={styles.imageContent}>
                         {image_link && 
-                        <Image fill src={image_link} alt={title}
+                        <Image fill src={`${domain}${image_link}`} alt={title}
                         placeholder='blur'
+                        // loader={({src}) => src}
                         blurDataURL={BlurPlaceholder()}
                         />}
                     </div>

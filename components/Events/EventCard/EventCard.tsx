@@ -6,6 +6,7 @@ import { faCalendar, faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { IClubEvent } from '@/models/Event';
 import Image from 'next/image'
 import BlurPlaceholder from '@/components/BlurPlaceholder/BlurPlaceholder';
+import { domain } from '@/app/url';
 
 function EventCard({ data }: { data: IClubEvent }) {
     const { _id, start_time, end_time, description, title, location, image_link, slug } = data;
@@ -31,7 +32,9 @@ function EventCard({ data }: { data: IClubEvent }) {
     return (
         <div className={styles.event}>
             <div className={styles.imageContent}>
-                {image_link && <Image fill src={image_link} alt={title}
+                {image_link && <Image 
+                fill 
+                src={`${domain}${image_link}`} alt={title}
                 placeholder='blur'
                 blurDataURL={BlurPlaceholder()}/>}
             </div>

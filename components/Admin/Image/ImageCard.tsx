@@ -2,6 +2,7 @@ import { IImageUploadData } from '@/models/ImageUpload';
 import styles from './ImageCard.module.css'
 import Image from 'next/image'
 import BlurPlaceholder from '@/components/BlurPlaceholder/BlurPlaceholder';
+import { domain } from '@/app/url';
 
 interface IImageUploadProps {
     data: IImageUploadData;
@@ -19,7 +20,7 @@ const ImageCard: React.FC<IImageUploadProps> = ({ data }) => {
             <div className={styles.imageDiv}>
                 <Image alt={alt} width={400} 
                 height={200} 
-                src={`/api/uploads/${slug}`} 
+                src={`${domain}/api/uploads/${slug}`} 
                 placeholder='blur' 
                 blurDataURL={BlurPlaceholder()}/>
             </div>

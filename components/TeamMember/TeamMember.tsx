@@ -9,7 +9,10 @@ const TeamMember = ({ title, name, image }: TeamMember) => {
 	return (
 		<div className={styles.memberItem}>
 			<div className={styles.imgContainer}>
-				<Image src={imageSrc} fill alt={`Event image for ${title}`}
+				<Image 
+				src={imageSrc} 
+				fill 
+				alt={`Event image for ${title}`}
 				placeholder='blur'
 				blurDataURL={BlurPlaceholder(500, 500)}
 				/>

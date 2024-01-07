@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './HomepageEvent.module.css';
 import Image from 'next/image'
 import BlurPlaceholder from '../BlurPlaceholder/BlurPlaceholder';
+import { domain } from '@/app/url';
 
 export type HomepageEventProps = {
 	title: string,
@@ -16,7 +17,7 @@ function HomepageEvent({ title, link, description, image }: HomepageEventProps) 
 			<a className={styles.link} href={link} />
 			<div className={styles.imgContainer}>
 				<Image
-					src={image}
+					src={`${domain}${image}`}
 					fill
 					alt={`Event image for ${title}`}
 					placeholder='blur'

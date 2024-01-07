@@ -16,11 +16,17 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    domains: ["mtautsc.com"],
+    domains: ["mtautsc.com", "www.mtautsc.com"],
     remotePatterns: [
       {
-        protocol: "https",
-        hostname: "mtautsc.com",
+        protocol: 'https',
+        hostname: 'mtautsc.com',
+        pathname: '**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.mtautsc.com',
+        pathname: '**',
       },
     ],
   },
