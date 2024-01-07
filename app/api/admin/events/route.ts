@@ -10,6 +10,7 @@ export async function POST(request: Request) {
     const event: IClubEvent = new ClubEvent({
         start_time: body.start_time,
         end_time: body.end_time,
+        slug: body.slug,
         description: body.description,
         title: body.title,
         location: body.location,

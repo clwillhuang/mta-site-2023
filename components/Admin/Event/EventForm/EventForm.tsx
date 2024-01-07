@@ -1,28 +1,43 @@
 'use client'
 
-import { IClubEvent, IClubEventData } from "@/models/Event";
-import { HTMLInputTypeAttribute, useEffect, useState } from "react";
-import styles from '@/app/globals.css'
+import { IClubEventData } from "@/models/Event";
+import { useState } from "react";
 import '@/app/globals.css'
+
+type StateProps = IClubEventData & { 
+    start_time_value: string,
+    end_time_value: string
+}
+
+const now = new Date();
 
 export default function EventForm({ event, create }: { event?: IClubEventData, create: boolean }) {
 
-    const defaultState: IClubEventData = {
+    const defaultState: StateProps = {
         _id: '',
-        start_time: new Date(),
-        end_time: new Date(),
+        start_time: now,
+        end_time: now,
+        start_time_value: now.toISOString().slice(0, 16),
+        end_time_value: now.toISOString().slice(0, 16),
         no_fixed_times: false,
         can_signup: false,
+        feature_on_homepage: false,
         description: '',
         title: '',
         location: '',
-        image_link: null,
+        image_link: '',
         body: '',
         slug: '',
     }
+
+    const [error, setError] = useState<string>('')
     
-    const [eventData, setEventData] = useState<IClubEventData>(
-        (!create && event) ? event : defaultState
+    const [eventData, setEventData] = useState<StateProps>(
+        (!create && event) ? {
+            ...event,
+            start_time_value: event.start_time.toISOString().slice(0, 16),
+            end_time_value: event.end_time.toISOString().slice(0, 16), 
+        } : defaultState
     );
 
     const handleChange = (e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -40,10 +55,16 @@ export default function EventForm({ event, create }: { event?: IClubEventData, c
         e.preventDefault();
         if (!create) {
             const { _id } = eventData
+            const formData = {
+                ...eventData, 
+                start_time: eventData.start_time_value,
+                end_time: eventData.end_time_value,
+            }
+            console.log(formData)
             const requestOptions = {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(eventData),
+                body: JSON.stringify(formData),
             };
             fetch(`/api/admin/events/${_id}`, requestOptions)
                 .then((response) => response.json())
@@ -55,13 +76,19 @@ export default function EventForm({ event, create }: { event?: IClubEventData, c
                 body: JSON.stringify(eventData),
             };
             fetch(`/api/admin/events/`, requestOptions)
-                .then((response) => response.json())
-                .then((data) => { window.location.replace('/admin') });
+                .then((response) => {
+                    if (response.ok) {
+                        return response.json()
+                    } else {
+                        setError('Encountered error submitting this data. ')
+                    }
+                })
+                // .then((data) => { window.location.replace('/admin') });
         }
     };
 
     return (
-        <form className={styles.form} onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <label htmlFor='title'>
                 Title
                 <br />
@@ -75,7 +102,7 @@ export default function EventForm({ event, create }: { event?: IClubEventData, c
             />
             <br />
             <label htmlFor='slug'>
-                Slug
+                Slug (example: using "network-event" will publish it to https://mtautsc.com/events/network-event)
                 <br />
             </label>
             <input
@@ -97,25 +124,25 @@ export default function EventForm({ event, create }: { event?: IClubEventData, c
                 onChange={handleChange}
             />
             <br />
-            <label>
+            <label htmlFor='start_time_value'>
                 Start Time
                 <br />
             </label>
             <input
                 type="datetime-local"
-                name="start_time"
-                value={eventData.start_time.toISOString().slice(0, 16)}
+                name="start_time_value"
+                value={eventData.start_time_value}
                 onChange={handleChange}
             />
             <br />
-            <label htmlFor='end_time'>
+            <label htmlFor='end_time_value'>
                 End Time
                 <br />
             </label>
             <input
                 type="datetime-local"
-                name="end_time"
-                value={eventData.end_time.toISOString().slice(0, 16)}
+                name="end_time_value"
+                value={eventData.end_time_value}
                 onChange={handleChange}
             />
             <br />
@@ -138,6 +165,17 @@ export default function EventForm({ event, create }: { event?: IClubEventData, c
                 type="checkbox"
                 name="can_signup"
                 checked={eventData.can_signup}
+                onChange={handleChange}
+            />
+            <br />
+            <label>
+                Feature on homepage?
+                <br />
+            </label>
+            <input
+                type="checkbox"
+                name="feature_on_homepage"
+                checked={eventData.feature_on_homepage}
                 onChange={handleChange}
             />
             <br />
@@ -179,6 +217,7 @@ export default function EventForm({ event, create }: { event?: IClubEventData, c
                 onChange={handleChange}
                 required
             />
+            {error && <span style={{color: 'red'}}>{error}</span>}
             <button type="submit">Submit</button>
         </form>
     )

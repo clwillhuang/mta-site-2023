@@ -15,6 +15,15 @@ const nextConfig = {
     // !! WARN !!
     ignoreBuildErrors: true,
   },
+  images: {
+    domains: ["mtautsc.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "mtautsc.com",
+      },
+    ],
+  },
 }
 
 module.exports = nextConfig

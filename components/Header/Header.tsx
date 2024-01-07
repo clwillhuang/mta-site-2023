@@ -1,7 +1,5 @@
-import { ReactNode } from 'react';
 import styles from './Header.module.css'
 import Image from 'next/image'
-import { AsymTriangleTop } from '../Dividers/AsymTriangleTop';
 import BlurPlaceholder from '../BlurPlaceholder/BlurPlaceholder';
 
 export type HeaderImageProps = {

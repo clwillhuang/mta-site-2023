@@ -17,7 +17,11 @@ const ImageCard: React.FC<IImageUploadProps> = ({ data }) => {
     return (
         <div className={styles.card}>
             <div className={styles.imageDiv}>
-                <Image alt={alt} width={400} height={200} src={`/api/uploads/${slug}`} placeholder='blur' blurDataURL={BlurPlaceholder()}/>
+                <Image alt={alt} width={400} 
+                height={200} 
+                src={`/api/uploads/${slug}`} 
+                placeholder='blur' 
+                blurDataURL={BlurPlaceholder()}/>
             </div>
             <div className={styles.contentDiv}>
                 <h3>Link</h3>
