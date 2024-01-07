@@ -27,6 +27,7 @@ export default async function Page() {
                             <p>No upcoming events are visible at the current time. For more updates, view our Instagram.</p>
                     }
                 </div>
+                <div style={{height: '20vh'}}></div>
                 <AsymTriangleTop />
             </div>
             <div className={styles.past}>

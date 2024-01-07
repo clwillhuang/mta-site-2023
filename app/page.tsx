@@ -42,6 +42,12 @@ export default async function Home() {
 			link: '/events/power-connect-workshop',
 			image: '/ic-atrium.jpg',
 			description: 'Join this exclusive event to meet recruiters and professionals to gain insights, network and get closer to your dream career.'
+		},
+		{
+			title: 'ECLIPSE Case Competition 2024',
+			link: '/events/eclipse-competition-2024',
+			image: '/api/uploads/eclipse-2024',
+			description: 'Signup today for this annual all-day multidisciplinary case competition catered for undergraduates and organized by student management groups.'
 		}
 	]
 

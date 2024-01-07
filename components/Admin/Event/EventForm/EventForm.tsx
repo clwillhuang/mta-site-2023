@@ -42,7 +42,7 @@ export default function EventForm({ event, create }: { event?: IClubEventData, c
 
     const handleChange = (e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         let { name, value } = e.target;
-        if (name === 'no_fixed_times' || name === 'can_signup') {
+        if (name === 'no_fixed_times' || name === 'can_signup' || name === 'no_fixed_times') {
             value = e.target.checked
         }
         setEventData((prevEvent: any) => ({
