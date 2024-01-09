@@ -48,6 +48,12 @@ export default async function Home() {
 			link: '/events/eclipse-competition-2024',
 			image: '/api/uploads/eclipse-2024',
 			description: 'Signup today for this annual all-day multidisciplinary case competition catered for undergraduates and organized by student management groups.'
+		},
+		{
+			title: 'MTA x Wealthsimple',
+			link: '/events/mta-wealthsimple-jan-2024',
+			image: '/api/uploads/toronto-skyline',
+			description: "Registration now open. Get ready to explore the world of finance and tech at Wealthsimple's Toronto office."
 		}
 	]
 
