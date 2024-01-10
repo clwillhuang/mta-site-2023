@@ -114,7 +114,7 @@ export const teamData: Array<Team> = [
             },
             {
                 name: 'Khushi Talati',
-                title: 'Director of Events',
+                title: 'VP Events',
                 image: KT
             },
             {
