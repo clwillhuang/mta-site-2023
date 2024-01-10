@@ -23,11 +23,13 @@ export async function GET(
 }
 
 export async function getEventBySlug(slug: string): Promise<IClubEvent | null> {
+    await dbConnect();
     let event: IClubEvent | null = await ClubEvent.findOne({slug: slug}).lean();
     return event;
 }
 
 export async function getEvent(id: string): Promise<IClubEvent | null> {
+    await dbConnect();
     let event: IClubEvent | null = await ClubEvent.findById(id).lean();
     return event;
 }
