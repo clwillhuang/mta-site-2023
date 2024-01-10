@@ -4,12 +4,15 @@ import Image from 'next/image'
 import BlurPlaceholder from "../BlurPlaceholder/BlurPlaceholder";
 
 const TeamMember = ({ title, name, image }: TeamMember) => {
-	const imageSrc = image ?? '/bridge-workshop.jpg';
+	const imageSrc = image ?? '/images/bridge-workshop.jpg';
 
 	return (
 		<div className={styles.memberItem}>
 			<div className={styles.imgContainer}>
-				<Image src={imageSrc} fill alt={`Event image for ${title}`}
+				<Image 
+				src={imageSrc} 
+				fill 
+				alt={`Event image for ${title}`}
 				placeholder='blur'
 				blurDataURL={BlurPlaceholder(500, 500)}
 				/>

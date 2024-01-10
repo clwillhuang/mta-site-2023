@@ -28,7 +28,7 @@ export default function ContactForm() {
                     </form>
                 </div>
                 <div className={styles.contactRight}>
-                    <img src='/large-mta-logo.png' />
+                    <img src='/images/large-mta-logo.png' />
                 </div>
             </div >
         </div >

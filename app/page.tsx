@@ -10,9 +10,8 @@ import ContactForm from '@/components/ContactForm/ContactForm';
 import HomepageEvent, { HomepageEventProps } from '@/components/HomepageEvent/HomepageEvent';
 import { AsymTriangleTop } from '@/components/Dividers/AsymTriangleTop';
 import { SlantDividerBottom } from '@/components/Dividers/SlantDividerBottom';
-import { SlantDividerTop } from '@/components/Dividers/SlantDividerTop';
 import Footer from '@/components/Footer/Footer';
-import HomepageImage from '@/public/power-bi-2023.jpg'
+import HomepageImage from '@/public/images/power-bi-2023.jpg'
 import customizeMetadata from '@/components/Head/Head';
 import { Metadata } from 'next';
 import 'animate.css';
@@ -34,14 +33,26 @@ export default async function Home() {
 		{
 			title: 'Data Analytics Case Competition',
 			link: '/events/case-competition-2023-event',
-			image: '/bridge-workshop.jpg',
+			image: '/images/bridge-workshop.jpg',
 			description: 'Teams use data analytics to build the best Premier League fantasy team, with prizes for top scorers!'
 		},
 		{
 			title: 'Power Connect',
 			link: '/events/power-connect-workshop',
-			image: '/ic-atrium.jpg',
+			image: '/images/ic-atrium.jpg',
 			description: 'Join this exclusive event to meet recruiters and professionals to gain insights, network and get closer to your dream career.'
+		},
+		{
+			title: 'ECLIPSE Case Competition 2024',
+			link: '/events/eclipse-competition-2024',
+			image: '/api/uploads/eclipse-2024',
+			description: 'Signup today for this annual all-day multidisciplinary case competition catered for undergraduates and organized by student management groups.'
+		},
+		{
+			title: 'MTA x Wealthsimple',
+			link: '/events/mta-wealthsimple-jan-2024',
+			image: '/api/uploads/toronto-skyline',
+			description: "Registration now open. Get ready to explore the world of finance and tech at Wealthsimple's Toronto office."
 		}
 	]
 
@@ -56,7 +67,7 @@ export default async function Home() {
 				<Navbar session={session} />
 			</NextAuthProvider>
 			<Header contentClassName={styles.content} title={title} subtitle={subtitle} image={headerImage} divider={<AsymTriangleTop id='about'/>}>
-				<img src='/large-mta-logo-transparent.png'></img>
+				<img src='/images/large-mta-logo-transparent.png'></img>
 			</Header>
 			<div id='abouttimeline' className={styles.timelineContainer}>
 				<div className={styles.timelineContent}>

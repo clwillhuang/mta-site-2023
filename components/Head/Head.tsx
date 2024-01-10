@@ -1,5 +1,4 @@
 import { Metadata } from 'next'
-import Head from 'next/head'
 
 type CustomHeadProps = {
   title: string,
@@ -8,7 +7,7 @@ type CustomHeadProps = {
   disableCrawling?: boolean
 }
 
-export default function customizeMetadata({ title, description, children }: CustomHeadProps): Metadata {
+export default function customizeMetadata({ title, description, children, disableCrawling }: CustomHeadProps): Metadata {
   const robots = {
     index: false,
     follow: true,
@@ -17,6 +16,6 @@ export default function customizeMetadata({ title, description, children }: Cust
   return {
     title: `${title} | MTA UTSC`,
     description: description ?? 'MTA',
-    robots 
+    robots: disableCrawling ? robots : undefined,
   }
 }

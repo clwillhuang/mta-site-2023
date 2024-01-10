@@ -1,16 +1,15 @@
 import ClubEvent, { IClubEvent } from "@/models/Event";
 import Signup, { ISignup } from "@/models/Signup";
-import { getServerSession } from "next-auth";
-import { NextResponse, userAgent } from "next/server";
-import { authOptions } from "../../auth/[...nextauth]/route";
-import { Session } from "inspector";
+import { NextResponse } from "next/server";
 import { getUser } from "@/app/getUser";
+import dbConnect from "@/lib/dbConnect";
 
 export async function GET(
     request: Request,
     { params }: { params: { id: string } }
 ) {
     try {
+        await dbConnect();
         let event = await getEvent(params.id);
         if (!event) {
             return NextResponse.json({}, { status: 404 });
@@ -24,11 +23,13 @@ export async function GET(
 }
 
 export async function getEventBySlug(slug: string): Promise<IClubEvent | null> {
+    await dbConnect();
     let event: IClubEvent | null = await ClubEvent.findOne({slug: slug}).lean();
     return event;
 }
 
 export async function getEvent(id: string): Promise<IClubEvent | null> {
+    await dbConnect();
     let event: IClubEvent | null = await ClubEvent.findById(id).lean();
     return event;
 }
@@ -50,6 +51,7 @@ export async function getEventWithSignupWithId(eventId: string): Promise<IClubEv
 
 async function getEventWithSignup(event: IClubEvent | null): Promise<IClubEventWithSignup | null> {
     const user = await getUser();
+    await dbConnect();
     if (event) {
         if (user) {
             let signup: ISignup | null = await Signup.findOne({ event: event._id, user: user._id }).lean()

@@ -38,7 +38,7 @@ function Footer() {
         <footer className={styles.header}>
             <div className={styles.inner}>
                 <a href="/" className={styles.logo}>
-                    <img src='/large-mta-logo.png' />
+                    <img src='/images/large-mta-logo.png' />
                 </a>
                 <div className={styles.socials}>
                     <a href="mailto:mtecha.utsc@gmail.com">

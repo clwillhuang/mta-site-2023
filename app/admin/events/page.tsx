@@ -19,4 +19,4 @@ export default async function Page() {
     );
 }
 
-export const metadata = customizeMetadata({title: 'Add new event'})
+export const metadata = customizeMetadata({title: 'Add new event', disableCrawling: true})

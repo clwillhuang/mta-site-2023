@@ -62,6 +62,7 @@ export async function DELETE(
     request: Request,
     { params }: { params: { slug: string } }
 ) {
+    await dbConnect();
     const imageDocument: IImageUpload | null = await ImageUpload.findOne({ slug: params.slug });
     if (!imageDocument) {
         return Response.json({ message: 'Image not found' }, { status: 404 })

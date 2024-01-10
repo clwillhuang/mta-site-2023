@@ -5,17 +5,16 @@ import 'animate.css'
 import ContactForm from '@/components/ContactForm/ContactForm';
 
 export default async function Team() {
-    return(
+    return (
         <Layout>
-			<PaddedLayout addNavbarPadding>
-                   <ContactForm/>
-			</PaddedLayout>
+            <PaddedLayout addNavbarPadding>
+                <ContactForm />
+            </PaddedLayout>
         </Layout>
     )
 }
 
 export const metadata = customizeMetadata({
     title: 'Contact',
-    description: 'Reach us via email or message.',
-    disableCrawling: true
+    description: 'Reach out to Management Technology Association at UTSC via email, social media, or message.'
 })

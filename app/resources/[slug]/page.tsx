@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     const resource: IResource | null = await getResource(params.slug)
     if (!resource) return {}
     return customizeMetadata({
-      title: resource.title,
-      description: resource.description
+        title: resource.title,
+        description: resource.description
     })
-  }
+}

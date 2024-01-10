@@ -144,7 +144,7 @@
   }
 
   .itemContent {
-    margin-left: 200px;
+    margin-left: 12vw;
   }
 
   .eventBar {
@@ -187,6 +187,7 @@
 
 .eventBar {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   position: relative;
 }
