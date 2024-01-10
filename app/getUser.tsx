@@ -19,6 +19,7 @@ export async function getUserId(): Promise<string> {
 
 export async function getUser(): Promise<IUser | null> {
     const session: Session | null = await getServerSession(authOptions);
+    await dbConnect();
     if (session && session.user) {
         await dbConnect();
         return await User.findOne({googleId: session.user.sub, provider: session.user.provider}).lean();

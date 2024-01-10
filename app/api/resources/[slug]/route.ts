@@ -1,5 +1,6 @@
 import { NextResponse, userAgent } from "next/server";
 import { IResource, Resource } from "@/models/Resource";
+import dbConnect from "@/lib/dbConnect";
 
 export async function GET(
     request: Request,
@@ -19,6 +20,7 @@ export async function GET(
 }
 
 export async function getResource(slug: string): Promise<IResource | null> {
+    await dbConnect();
     let event: IResource | null = await Resource.findOne({slug: slug})
     return event;
 }

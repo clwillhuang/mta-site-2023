@@ -35,5 +35,5 @@ export default async function Team() {
 export const metadata = customizeMetadata({
     title: 'Team',
     description: 'Meet the team behind the organization.',
-    disableCrawling: true
+	disableCrawling: true
 })

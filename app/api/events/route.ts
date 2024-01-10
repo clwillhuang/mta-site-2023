@@ -11,7 +11,6 @@ export async function GET(request: Request) {
     try {
         return NextResponse.json(getAllEvents());
     } catch (err: unknown) {
-        console.log(err)
         return NextResponse.json({}, {status: 500})
     }
 }

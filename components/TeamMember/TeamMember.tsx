@@ -4,7 +4,7 @@ import Image from 'next/image'
 import BlurPlaceholder from "../BlurPlaceholder/BlurPlaceholder";
 
 const TeamMember = ({ title, name, image }: TeamMember) => {
-	const imageSrc = image ?? '/bridge-workshop.jpg';
+	const imageSrc = image ?? '/images/bridge-workshop.jpg';
 
 	return (
 		<div className={styles.memberItem}>

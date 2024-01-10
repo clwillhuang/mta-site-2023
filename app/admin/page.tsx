@@ -94,4 +94,4 @@ export default async function Page() {
     )
 }
 
-export const metadata = customizeMetadata({title: 'Admin Dashboard'})
+export const metadata = customizeMetadata({title: 'Admin Dashboard', disableCrawling: true})

@@ -45,18 +45,18 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 <h2 className={styles.subtitle}>{event.title}</h2>
                 <div className={styles.event}>
                     <div className={styles.imageContent}>
-                        {image_link && 
-                        <Image fill src={`${domain}${image_link}`} alt={title}
-                        placeholder='blur'
-                        // loader={({src}) => src}
-                        blurDataURL={BlurPlaceholder()}
-                        />}
+                        {image_link &&
+                            <Image fill src={`${domain}${image_link}`} alt={title}
+                                placeholder='blur'
+                                // loader={({src}) => src}
+                                blurDataURL={BlurPlaceholder()}
+                            />}
                     </div>
                     <div>
                         {
-                        !no_fixed_times && 
-                        <p className={styles.time}>
-                            <FontAwesomeIcon icon={faCalendar} /> {timeString()}</p>
+                            !no_fixed_times &&
+                            <p className={styles.time}>
+                                <FontAwesomeIcon icon={faCalendar} /> {timeString()}</p>
                         }
                         <p className={styles.location}><FontAwesomeIcon icon={faLocationDot} /> {location}</p>
                         {can_signup && <SignupButton _id={id} signup={signup} />}
@@ -70,12 +70,12 @@ export default async function Page({ params }: { params: { slug: string } }) {
     )
 }
 
-export async function generateMetadata({ params }: {params: {slug: string}}) {
+export async function generateMetadata({ params }: { params: { slug: string } }) {
     const slug = params.slug;
     const data: IClubEventWithSignup | null = await getEventWithSignupWithSlug(slug);
     if (!data || !data.event) return {}
     return customizeMetadata({
-      title: data.event.title,
-      description: data.event.description
+        title: data.event.title,
+        description: data.event.description
     })
-  }
+}

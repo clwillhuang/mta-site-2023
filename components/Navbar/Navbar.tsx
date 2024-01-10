@@ -48,7 +48,7 @@ export default function Navbar(props: NavbarProps) {
             <nav className={styles.nav}>
                 <div className={styles.inner}>
                     <a href="/" className={styles.logo}>
-                        <img src='/large-mta-logo.png'></img>
+                        <img src='/images/large-mta-logo.png'></img>
                     </a>
                     <FontAwesomeIcon icon={faBars} className={styles.toggle} onClick={() => setActive(!active)} />
                     <ul className={styles.desktopMenu}>
