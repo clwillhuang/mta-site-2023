@@ -25,6 +25,11 @@ const nextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'mtautsc.com/images',
+        pathname: '**',
+      },
+      {
+        protocol: 'https',
         hostname: 'www.mtautsc.com',
         pathname: '**',
       },
