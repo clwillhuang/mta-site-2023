@@ -6,6 +6,10 @@
 }
 
 .form {
+  max-width: 100%;
+}
+
+.contactLeft {
   max-width: 600px;
 }
 
@@ -13,14 +17,14 @@
   width: 100%;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 760px) {
 
   .screenContainer {
     padding: 0;
   }
 }
 
-@media (min-width: 500px) {
+@media (min-width: 760px) {
 
   .screenContainer {
     padding: 0 80px;
@@ -38,7 +42,7 @@
   display: flex;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 760px) {
   .formRow {
       flex-direction: column;
   }
@@ -57,7 +61,11 @@
   }
 }
 
-@media (min-width: 500px) {
+@media (min-width: 760px) {
+
+  .contact {
+    display: flex;
+  }
 
   .formRow {
       flex-direction: row;
@@ -83,6 +91,8 @@
 
   .contactRight {
       width: 20%;
+      flex-grow: 1;
+      margin: auto auto;
   }
 
 }
