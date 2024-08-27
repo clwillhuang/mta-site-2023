@@ -8,7 +8,7 @@ The website uses authentication powered by OAuth, currently provided by Google C
 
 The website features server-side rendering using data from MongoDB. 
 
-To connect to OAuth supply the app with secrets in .env.local, as modelled by the example configuration in `.env.example`. Additional secrets are needed to connect to MongoDB. 
+To connect to OAuth supply the app with secrets in `.env.local`, as modelled by the example configuration in `.env.example`. Additional secrets are needed to connect to MongoDB. 
 
 For deployment to Vercel, provide the updated secrets as [environment variables on Vercel](https://vercel.com/docs/projects/environment-variables).
 
