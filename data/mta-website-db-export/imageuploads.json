@@ -1,0 +1,5 @@
+{"_id":{"$oid":"659838af26b325d430176261"},"slug":"slug","alt":"miaged","description":"capti","image":{"$oid":"659838af26b325d430176260"},"__v":0}
+{"_id":{"$oid":"65984549eed3ebb54b8e6019"},"slug":"ic-building","alt":"Image of IC building for events","description":"Photo of the atrium at the Instructional Centre at UTSC.","image":{"$oid":"65984549eed3ebb54b8e6018"},"__v":0}
+{"_id":{"$oid":"65984582eed3ebb54b8e6024"},"slug":"bridge-workshop","alt":"Students attend a workshop held at the thebridge.","description":"A sample workshop or event at TheBridge.","image":{"$oid":"65984582eed3ebb54b8e6023"},"__v":0}
+{"_id":{"$oid":"659af5d6efa8a6ef1eeb7cae"},"slug":"eclipse-2024","alt":"Logo of ECLIPSE Case Competition 2024","description":"Logo of ECLIPSE Case Competition 2024","image":{"$oid":"659af5d6efa8a6ef1eeb7cad"},"__v":0}
+{"_id":{"$oid":"659c88d74cfab11b5330c2df"},"slug":"toronto-skyline","alt":"Image of city","description":"Image of city","image":{"$oid":"659c88d74cfab11b5330c2de"},"__v":0}
