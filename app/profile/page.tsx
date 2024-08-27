@@ -6,6 +6,7 @@ import { getMe, getMySignups } from '../api/me/route'
 import { redirect } from 'next/navigation'
 import PaddedLayout from '@/components/PaddedLayout/PaddedLayout'
 import customizeMetadata from '@/components/Head/Head'
+import DeleteAccountButton from '@/components/Profile/DeleteAccountButton'
 
 /**
  * Return the dashboard page for profile page
@@ -22,6 +23,7 @@ export default async function Page() {
         <Layout header={<></>}>
             <PaddedLayout addNavbarPadding>
                 <h2>My account</h2>
+                <hr className={styles.hr}/>
                 <p className={styles.headline}>
                     <img src={user.picture} className={styles.image}></img>
                     {user.username}
@@ -30,7 +32,13 @@ export default async function Page() {
                 <p>{user.email}</p>
                 <strong>Role</strong>
                 <p>{user.role}</p>
-                <strong>Event Signups</strong>
+
+                <DeleteAccountButton/>
+                
+                <hr className={styles.hr}/>
+
+                <h2>My Events</h2>
+                <p style={{marginBottom: '15px'}}>These are events that you have expressed interest for. To attend events, ensure that you have separately completed the signup process for that specific form!</p>
                 <div>{signups && signups.map((signup, index) => <SignupCard data={signup} key={'signup'+index}/>)}</div>
             </PaddedLayout>
         </Layout>

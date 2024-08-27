@@ -30,10 +30,12 @@ export const authOptions = {
         return false;
       }
       await dbConnect();
+      const pattern = /[^a-zA-Z0-9_ ]/g;
+      const cleanUsername = profile.name ? profile.name.replace(pattern, '') : 'My Username';
       const userData = {
         googleId: user.id,
         googleSub: profile.sub,
-        username: profile.name,
+        username: cleanUsername,
         provider: account.provider,
         email: profile.email,
         picture: profile.picture ?? '',

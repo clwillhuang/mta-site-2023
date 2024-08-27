@@ -60,7 +60,7 @@ export default function EventForm({ event, create }: { event?: IClubEventData, c
                 start_time: eventData.start_time_value,
                 end_time: eventData.end_time_value,
             }
-            console.log(formData)
+            // console.log(formData)
             const requestOptions = {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },

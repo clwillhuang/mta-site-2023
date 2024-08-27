@@ -9,6 +9,7 @@ import BlurPlaceholder from '@/components/BlurPlaceholder/BlurPlaceholder';
 import { domain } from '@/app/url';
 
 function EventCard({ data }: { data: IClubEvent }) {
+
     const { _id, start_time, end_time, description, title, location, image_link, slug } = data;
     const no_fixed_times = data?.no_fixed_times ?? false;
 

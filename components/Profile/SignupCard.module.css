@@ -3,5 +3,10 @@
     margin-bottom: 10px;
     overflow: hidden;
     border: 2px solid var(--accent);
-    padding: 25px;
+    padding: 10px;
+}
+
+.card a:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }

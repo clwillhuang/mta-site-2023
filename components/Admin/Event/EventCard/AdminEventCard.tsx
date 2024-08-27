@@ -4,8 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendar, faLocationDot, faPenToSquare, faTrash, faCode } from '@fortawesome/free-solid-svg-icons'
 import { IClubEvent } from '@/models/Event';
 import ClientButton from '@/components/ClientButton/ClientButton';
+import { getEventWithSignupWithId } from '@/app/api/events/[id]/route';
+import Signup, { ISignupData } from '@/models/Signup';
+import dbConnect from '@/lib/dbConnect';
 
-function AdminEventCard({ data }: { data: IClubEvent }) {
+function AdminEventCard({ data, signups }: { data: IClubEvent, signups: Array<ISignupData> }) {
     const { _id, start_time, end_time, description, title, location, slug } = data;
     const image_link = data.image_link ?? '';
     
@@ -32,7 +35,18 @@ function AdminEventCard({ data }: { data: IClubEvent }) {
             <p className={styles.time}><FontAwesomeIcon icon={faCalendar} /> {timeString}</p>
             <p className={styles.location}><FontAwesomeIcon icon={faLocationDot} /> {location}</p>
             <p className={styles.location}><FontAwesomeIcon icon={faCode} /> Website Slug: /{slug}</p>
+            <hr/>
             <p className={styles.description}>{displayedDescription}</p>
+            <hr/>
+            {
+                (data.can_signup || signups.length > 0) &&
+                <>
+                    <p className={styles.signups}>
+                        {signups.length} user(s) have expressed interest: {signups.map(s => s.user.username).join(', ')}
+                    </p>
+                    <hr/>
+                </>
+            }
             <div className={styles.actions}>
                 <a href={`/admin/events/${_id}`} className={styles.editButton}>
                     <FontAwesomeIcon icon={faPenToSquare}/><span> Edit</span>

@@ -26,7 +26,7 @@ export default function ImageUploadForm({ create }: ImageUploadFormProps) {
                 body: requestData,
             };
 
-            console.log('sending', requestOptions)
+            // console.log('sending', requestOptions)
 
             const response = await fetch("/api/admin/uploads", requestOptions);
 

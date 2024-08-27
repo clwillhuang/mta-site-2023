@@ -20,9 +20,9 @@ export async function GET(
 
     const fileId: mongoose.Types.ObjectId = imageDocument.image;
 
-    if (fileId) {
-        console.log(imageDocument)
-    }
+    // if (fileId) {
+    //     console.log(imageDocument)
+    // }
 
     // Validate that fileId is a valid ObjectId
     if (!mongoose.Types.ObjectId.isValid(fileId.toString())) {

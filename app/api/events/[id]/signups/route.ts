@@ -29,7 +29,7 @@ export async function POST(
         });
 
         const newSignup = await signup.save();
-        return NextResponse.json({}, {status: 201})
+        return NextResponse.json({newSignup}, {status: 201})
 
     } catch (err) {
         console.log(err)

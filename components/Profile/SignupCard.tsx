@@ -30,7 +30,7 @@ const SignupCard = ({data}: { data: ISignupWithEventData}) => {
     if (data.eventData) {
         return(
             <div className={styles.card}>
-                <p>{data.eventData.title}</p>
+                <h4><a href={`/events/${data.eventData.slug}`}>{data.eventData.title}</a></h4>
                 <p>{timeString}</p>
                 <p>You signed up {(new Date(data.date)).toLocaleString('en-US', options)}</p>
             </div>

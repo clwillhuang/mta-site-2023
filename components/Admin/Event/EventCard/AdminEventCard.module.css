@@ -14,12 +14,16 @@
     margin: 0 auto;
 }
 
-.description {
+.description, .signups {
     margin: 0 auto;
 }
 
-.actions {
-    margin-top: 25px;
+.signups {
+    color: gray;
+}
+
+.event hr {
+    margin: 10px 0;
 }
 
 .actions > a, .actions > button {

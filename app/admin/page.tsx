@@ -2,7 +2,7 @@ import React from 'react'
 import AdminEventCard from '../../components/Admin/Event/EventCard/AdminEventCard'
 import Layout from '@/components/Layout/Layout'
 import { getAllEvents } from '../api/events/route'
-import { IClubEvent } from '@/models/Event'
+import { IClubEvent, IClubEventData } from '@/models/Event'
 import Tabs, { TabProp } from '@/components/Tabs/Tabs'
 import { IResource } from '@/models/Resource'
 import { getAllResources } from '../api/resources/route'
@@ -14,6 +14,7 @@ import customizeMetadata from '@/components/Head/Head'
 import { IImageUploadData } from '@/models/ImageUpload'
 import { getAllImageData } from '../api/admin/uploads/route'
 import ImageCard from '@/components/Admin/Image/ImageCard'
+import Signup, { ISignupData } from '@/models/Signup'
 
 /**
  * Return the dashboard page for adminstrators
@@ -23,6 +24,15 @@ export default async function Page() {
     const events: IClubEvent[] | null = await getAllEvents();
     const resources: IResource[] | null = await getAllResources();
     const uploads: IImageUploadData[] | null = await getAllImageData();
+
+    // get count of interested signups per event 
+    const signupsByEvent: { [eventId: string]: Array<ISignupData> } = {};
+    if (events) {
+        for (const event of events) {
+            const eventSignups: Array<ISignupData> = await Signup.find({ event: event._id }).populate('user').lean();
+            signupsByEvent[event._id.toString()] = eventSignups;
+        }
+    }
 
     const tabs: TabProp[] = [
         {
@@ -36,7 +46,7 @@ export default async function Page() {
                     {
                         events && events.map(
                             (event: IClubEvent) =>
-                                <AdminEventCard key={event.title} data={event} />
+                                <AdminEventCard key={event.title} data={event} signups={signupsByEvent[event._id.toString()]}/>
                         )
                     }
                 </div>

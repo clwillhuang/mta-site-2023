@@ -2,17 +2,18 @@
 
 import { Session } from 'next-auth/core/types'
 import { signOut } from 'next-auth/react'
-import { redirect } from 'next/dist/server/api-utils'
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styles from './UserDetails.module.css'
+import { IUser } from '@/models/User'
 
 type UserDetailsProps = {
     session: Session | null,
+    user: IUser | null,
 }
 
 // Show a user dropdown when clicking on the user
 // icon in the navigation bar
-const UserDetails = ({ session }: UserDetailsProps) => {
+const UserDetails = ({ session, user }: UserDetailsProps) => {
     const [active, setActive] = useState(false);
 
     const startLogout = () => {
@@ -21,13 +22,13 @@ const UserDetails = ({ session }: UserDetailsProps) => {
         });
     }
 
-    if (session) {
+    if (user) {
         return (
             <li className={styles.parent}>
                 <div className={styles.preview}>
                     <img
                         className={styles.userImage}
-                        src={session.user?.image}
+                        src={user?.picture}
                         referrerPolicy="no-referrer"
                         onClick={() => setActive(!active)} />
                 </div>
@@ -38,9 +39,13 @@ const UserDetails = ({ session }: UserDetailsProps) => {
                             <li>
                                 <a href='/profile'>My Profile</a>
                             </li>
-                            <li>
-                                <a href='/admin'>Dashboard</a>
-                            </li>
+                            
+                            {
+                                user.role === 'ADMIN' && 
+                                <li>
+                                    <a href='/admin'>Dashboard</a>
+                                </li>
+                            }
                             <li>
                                 <button onClick={() => startLogout()}>Logout</button>
                             </li>

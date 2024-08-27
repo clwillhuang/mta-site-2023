@@ -7,7 +7,6 @@ export default async function AdminLayout({
   children: React.ReactNode
 }) {
   const session = await getServerSession();
-  console.log(session)
   if (!session || !session.user) {
     redirect('api/auth/signin')
   }

@@ -6,9 +6,11 @@ import UserDetails from '@/components/Navigation/UserDetails/UserDetails'
 import { Session } from 'next-auth'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { IUser } from '@/models/User'
 
 type NavbarProps = {
     session: Session | null,
+    user: IUser | null,
 }
 
 export default function Navbar(props: NavbarProps) {
@@ -42,6 +44,7 @@ export default function Navbar(props: NavbarProps) {
     ]
 
     const [active, setActive] = useState(false);
+    const { user } = props;
 
     return (
         <header className={styles.header}>
@@ -61,7 +64,7 @@ export default function Navbar(props: NavbarProps) {
                                     </ul>}
                             </li>
                         })}
-                        <UserDetails session={props.session} />
+                        <UserDetails session={props.session} user={user}/>
                     </ul>
                 </div>
                 <div>
@@ -75,7 +78,7 @@ export default function Navbar(props: NavbarProps) {
                                     </ul>}
                             </li>
                         })}
-                        <UserDetails session={props.session} />
+                        <UserDetails session={props.session} user={user}/>
                     </ul>
                 </div>
                     

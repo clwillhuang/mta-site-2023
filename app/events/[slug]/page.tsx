@@ -11,8 +11,12 @@ import customizeMetadata from '@/components/Head/Head';
 import Image from 'next/image'
 import BlurPlaceholder from '@/components/BlurPlaceholder/BlurPlaceholder';
 import { domain } from '@/app/url';
+import { getServerSession } from 'next-auth/next';
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 
-export default async function Page({ params }: { params: { slug: string } }) {
+export default async function Page({ params }: { params: { slug: string }}) {
+
+    const session = await getServerSession(authOptions);
 
     const slug = params.slug;
     const data: IClubEventWithSignup | null = await getEventWithSignupWithSlug(slug);
@@ -21,7 +25,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     const { signup, event } = data;
     if (!event) notFound();
 
-    const { _id: id, start_time, end_time, description, title, location, image_link, body } = event;
+    const { _id, start_time, end_time, description, title, location, image_link, body } = event;
     const no_fixed_times = event?.no_fixed_times ?? false;
     const can_signup = event?.can_signup ?? false;
 
@@ -59,7 +63,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                                 <FontAwesomeIcon icon={faCalendar} /> {timeString()}</p>
                         }
                         <p className={styles.location}><FontAwesomeIcon icon={faLocationDot} /> {location}</p>
-                        {can_signup && <SignupButton _id={id} signup={signup} />}
+                        {can_signup && <SignupButton _id={_id.toString()} signup={signup} has_session={!!session}/>}
                     </div>
                     <div className={styles.textContent}>
                         <MarkdownBody rawText={body} />

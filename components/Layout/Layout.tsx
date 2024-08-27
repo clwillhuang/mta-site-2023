@@ -3,6 +3,7 @@ import { Session, getServerSession } from 'next-auth';
 import styles from './Layout.module.css'
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
+import { getUser } from '@/app/getUser';
 
 type LayoutProps = {
     children: JSX.Element[] | JSX.Element
@@ -13,10 +14,11 @@ type LayoutProps = {
 export default async function Layout({children, header}: LayoutProps) {
 
     const session = await getServerSession(authOptions);
+    const user = await getUser()
 
     return(
         <div>
-            <Navbar session={session}/>
+            <Navbar session={session} user={user}/>
             {header}
             <div className={styles.container}>
                 {children}
