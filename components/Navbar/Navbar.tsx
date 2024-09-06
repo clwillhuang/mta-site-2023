@@ -13,9 +13,15 @@ type NavbarProps = {
     user: IUser | null,
 }
 
+type Link = {
+    title: string, link: string
+}
+
+type MainLink = Link & { sublinks: Link[] }
+
 export default function Navbar(props: NavbarProps) {
 
-    const links = [
+    const links: MainLink[] = [
         {
             title: 'About',
             link: '/#about',
