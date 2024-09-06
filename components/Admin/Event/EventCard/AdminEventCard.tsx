@@ -52,7 +52,7 @@ function AdminEventCard({ data, signups }: { data: IClubEvent, signups: Array<IS
                     <FontAwesomeIcon icon={faPenToSquare}/><span> Edit</span>
                 </a>
                 <ClientButton 
-                    url='/api/admin/events/${_id}' 
+                    url={`/api/admin/events/${_id}`}
                     method='DELETE' 
                     buttonProps={{className: styles.deleteButton}}
                     confirmMessage='Delete this event?'>

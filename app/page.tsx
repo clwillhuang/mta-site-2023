@@ -28,6 +28,7 @@ export default async function Home() {
 
 	const timeline: Array<TimelineEvent> = aboutTimelineData;
 	const session = await getServerSession(authOptions);
+	const user = session?.user ?? null;
 
 	const homePageEvents: Array<HomepageEventProps> = [
 		{
@@ -64,7 +65,7 @@ export default async function Home() {
 	return (
 		<>
 			<NextAuthProvider>
-				<Navbar session={session} />
+				<Navbar session={session} user={user}/>
 			</NextAuthProvider>
 			<Header contentClassName={styles.content} title={title} subtitle={subtitle} image={headerImage} divider={<AsymTriangleTop id='about'/>}>
 				<img src='/images/large-mta-logo-transparent.png'></img>
