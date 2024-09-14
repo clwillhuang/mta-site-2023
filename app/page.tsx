@@ -14,6 +14,7 @@ import Footer from '@/components/Footer/Footer';
 import HomepageImage from '@/public/images/power-bi-2023.jpg'
 import customizeMetadata from '@/components/Head/Head';
 import { Metadata } from 'next';
+import { getUser } from '@/app/getUser';
 import 'animate.css';
 
 export const metadata: Metadata = customizeMetadata({
@@ -28,7 +29,7 @@ export default async function Home() {
 
 	const timeline: Array<TimelineEvent> = aboutTimelineData;
 	const session = await getServerSession(authOptions);
-	const user = session?.user ?? null;
+	const user = await getUser();
 
 	const homePageEvents: Array<HomepageEventProps> = [
 		{
