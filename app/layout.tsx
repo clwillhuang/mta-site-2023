@@ -1,8 +1,6 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { Analytics } from "@vercel/analytics/react"
-import { SpeedInsights } from "@vercel/speed-insights/next"
 
 // Load CSS manually, and prevent it from being automatically loaded again
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -23,8 +21,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-       <Analytics/>
-      <SpeedInsights/>
       <body className={inter.className}>{children}</body>
     </html>
   )
