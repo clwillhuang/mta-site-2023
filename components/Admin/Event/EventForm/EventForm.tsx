@@ -3,6 +3,7 @@
 import { IClubEventData } from "@/models/Event";
 import { useState } from "react";
 import '@/app/globals.css'
+import { domain } from "@/app/url";
 
 type StateProps = IClubEventData & { 
     start_time_value: string,
@@ -102,7 +103,7 @@ export default function EventForm({ event, create }: { event?: IClubEventData, c
             />
             <br />
             <label htmlFor='slug'>
-                {`Slug (example: using \"network-event\" will publish it to https://mtautsc.com/events/network-event)`}
+                {`Slug (example: using \"network-event\" will publish it to ${domain}/events/network-event)`}
                 <br />
             </label>
             <input

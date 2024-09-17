@@ -16,25 +16,49 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    domains: ["mtautsc.com", "www.mtautsc.com"],
+    domains: ["mta-site-2023.vercel.app"],
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'mtautsc.com',
+        hostname: 'mta-site-2023.vercel.app.com',
         pathname: '**',
       },
       {
         protocol: 'https',
-        hostname: 'mtautsc.com/images',
+        hostname: 'mta-site-2023.vercel.app.com/images',
         pathname: '**',
       },
       {
         protocol: 'https',
-        hostname: 'www.mtautsc.com',
+        hostname: 'www.mta-site-2023.vercel.app.com',
         pathname: '**',
       },
     ],
   },
+  headers: [
+    {
+      source: "/:path*",
+      headers: [
+        {
+          key: 'X-Robots-Tag',
+          value: 'noindex,nofollow'
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        }
+      ]
+    },
+  ],
 }
 
 module.exports = nextConfig
