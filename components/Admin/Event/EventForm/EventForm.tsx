@@ -186,7 +186,7 @@ export default function EventForm({ event, create }: { event?: IClubEventData, c
             />
             <br />
             <label htmlFor='description'>
-                Description (500 characters max)
+                Description (200 characters max)
                 <br />
             </label>
             <textarea
@@ -195,7 +195,7 @@ export default function EventForm({ event, create }: { event?: IClubEventData, c
                 name="description"
                 value={eventData.description}
                 onChange={handleChange}
-                maxLength={500}
+                maxLength={200}
                 required
             />
             <br />
