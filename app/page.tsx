@@ -14,6 +14,7 @@ import Footer from '@/components/Footer/Footer';
 import HomepageImage from '@/public/images/power-bi-2023.jpg'
 import customizeMetadata from '@/components/Head/Head';
 import { Metadata } from 'next';
+import { getUser } from '@/app/getUser';
 import 'animate.css';
 
 export const metadata: Metadata = customizeMetadata({
@@ -28,33 +29,23 @@ export default async function Home() {
 
 	const timeline: Array<TimelineEvent> = aboutTimelineData;
 	const session = await getServerSession(authOptions);
-	const user = session?.user ?? null;
+	const user = await getUser();
 
 	const homePageEvents: Array<HomepageEventProps> = [
 		{
-			title: 'Data Analytics Case Competition',
-			link: '/events/case-competition-2023-event',
-			image: '/images/bridge-workshop.jpg',
-			description: 'Teams use data analytics to build the best Premier League fantasy team, with prizes for top scorers!'
-		},
-		{
-			title: 'Power Connect',
-			link: '/events/power-connect-workshop',
-			image: '/images/ic-atrium.jpg',
+			title: 'MTA Get Started Networking Event',
+			link: '/events/get-started-fall-2024',
+			image: '/api/uploads/get-started-fall-2024',
 			description: 'Join this exclusive event to meet recruiters and professionals to gain insights, network and get closer to your dream career.'
 		},
 		{
-			title: 'ECLIPSE Case Competition 2024',
-			link: '/events/eclipse-competition-2024',
-			image: '/api/uploads/eclipse-2024',
-			description: 'Signup today for this annual all-day multidisciplinary case competition catered for undergraduates and organized by student management groups.'
-		},
-		{
-			title: 'MTA x Wealthsimple',
-			link: '/events/mta-wealthsimple-jan-2024',
-			image: '/api/uploads/toronto-skyline',
-			description: "Registration now open. Get ready to explore the world of finance and tech at Wealthsimple's Toronto office."
+			title: 'Data Analytics Case Competition',
+			link: '/events/data-series-fall-2024',
+			image: '/images/ic-atrium.jpg',
+			description: 'Teams use data analytics to build the best F1 Formula One Racing team, with prizes for top scorers!'
 		}
+		
+	
 	]
 
 	const headerImage: HeaderImageProps = {
@@ -101,7 +92,7 @@ export default async function Home() {
 			</div>
 
 			<div className={styles.events}>
-				<h2 className={styles.eventTitle}>2023-2024 Events</h2>
+				<h2 className={styles.eventTitle}>2024-2025 Events</h2>
 				<div className={styles.eventBar}>
 					{
 						homePageEvents.map(eventData => <HomepageEvent key={eventData.title} {...eventData} />)

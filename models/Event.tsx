@@ -20,10 +20,6 @@ export interface IClubEvent extends mongoose.Document, IClubEventData {
 }
 
 export const clubEventSchema = new mongoose.Schema<IClubEvent>({
-    id: {
-        type: mongoose.Schema.Types.ObjectId,
-        unique: true,
-    },
     slug: {
         type: String,
         required: true,
