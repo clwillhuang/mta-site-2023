@@ -1,1 +1,1 @@
-export const domain = 'https://www.mta-site-2023.vercel.app'
+export const domain = 'https://mta-site-2023.vercel.app'

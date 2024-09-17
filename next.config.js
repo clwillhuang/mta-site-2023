@@ -20,17 +20,12 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'mta-site-2023.vercel.app.com',
+        hostname: 'mta-site-2023.vercel.app',
         pathname: '**',
       },
       {
         protocol: 'https',
-        hostname: 'mta-site-2023.vercel.app.com/images',
-        pathname: '**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'www.mta-site-2023.vercel.app.com',
+        hostname: 'mta-site-2023.vercel.app/images',
         pathname: '**',
       },
     ],
