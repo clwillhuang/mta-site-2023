@@ -70,10 +70,16 @@ export default function EventForm({ event, create }: { event?: IClubEventData, c
                 .then((response) => response.json())
                 // .then((data) => { window.location.replace('/admin') });
         } else {
+            const formData = {
+                ...eventData, 
+                start_time: eventData.start_time_value,
+                end_time: eventData.end_time_value,
+            }
+
             const requestOptions = {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(eventData),
+                body: JSON.stringify(formData),
             };
             fetch(`/api/admin/events/`, requestOptions)
                 .then((response) => {
@@ -180,7 +186,7 @@ export default function EventForm({ event, create }: { event?: IClubEventData, c
             />
             <br />
             <label htmlFor='description'>
-                Description (140 characters max)
+                Description (500 characters max)
                 <br />
             </label>
             <textarea
@@ -189,7 +195,7 @@ export default function EventForm({ event, create }: { event?: IClubEventData, c
                 name="description"
                 value={eventData.description}
                 onChange={handleChange}
-                maxLength={140}
+                maxLength={500}
                 required
             />
             <br />
